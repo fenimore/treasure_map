@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Treasure Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recent items in {{ location.title() }}</h1>      
+      <p>Click <a href="/{{ location }}/map">here</a> to see the map.</p>
+      <br>
+      <div class="row">
+        <div class="col-xs-1">Select:</div>
+        <div class="col-xs-4">      
+          {% for thing in things[:5] %}
+          <div border="solid">
+            <h4>{{ thing.place.title() }}</h4>
+            <a href ={{ thing.url }} target="_blank">
+            <span title={{ thing.title }}>
+            <img 
+                src= {{ thing.image }} width="200" 
+                alt= {{ thing.title }}  height=auto />
+            </span>
+            </a>
+          </div>
+          
+          {% endfor %}
+        </div>
+        <div class="col-4">
+          {% for thing in things[5:] %}
+          <div border="solid">
+            <h4>{{ thing.place.title() }}</h4>
+            <img href ={{ thing.url }} 
+                src= {{ thing.image }} width="200" height=auto
+                 alt= {{ thing.title }}  />
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <br>
+      <hr>
+
+    </div>
+  </body>
+</html>
