@@ -11,7 +11,7 @@
 
     <title>Find Freestuff Near You</title>
 
-    <link href="static/skeleton.css" rel="stylesheet" media="screen">
+    <link href="static/s.css" rel="stylesheet" media="screen">
     <link href="static/normalize.css" rel="stylesheet" media="screen">
     <style>
     .skinny {

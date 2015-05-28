@@ -3,7 +3,7 @@
   <head>
     <title>Recent Stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/skeleton.css" rel="stylesheet" media="screen">
+    <link href="static/s.css" rel="stylesheet" media="screen">
     <link href="static/normalize.css" rel="stylesheet" media="screen">
   </head>
   <body>
