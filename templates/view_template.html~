@@ -46,7 +46,6 @@
                 src= {{ thing.image }} />
             </span>
             </a>
-            <hr>
           </div>
           {% endfor %}
         </div>
@@ -60,7 +59,6 @@
           </div>
              </span>
           {% endfor %}
-          <hr>
         </div>
         <div class="three columns">
           {% for thing in things[6:] %}
@@ -71,7 +69,6 @@
                 src= {{ thing.image }} width="auto" height="200px;" />
           </div>
              </span>
-             <hr>
           {% endfor %}
         </div>
       </div>
