@@ -27,9 +27,9 @@ stuffs = []
 def home():
     return render_template('accueil.html')
 
-@app.route('/<location>/<int:quantity>')
-def welcome(location, quantity):
-    stuffs = stuff.gather_stuff(location, quantity)
+@app.route('/<location>')
+def welcome(location):
+    stuffs = stuff.gather_stuff(location, 9)
     # Somehow iterate the dict construction? Yeah.. that.
     things = [ # Array of first five Dicts
         {
@@ -115,7 +115,7 @@ def show_more_map(location, quantity):
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
-    app.run(debug=True, port=33507)
+    app.run()
     
     
     

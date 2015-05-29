@@ -27,9 +27,9 @@ stuffs = []
 def home():
     return render_template('accueil.html')
 
-@app.route('/<location>/<int:quantity>')
-def welcome(location, quantity):
-    stuffs = stuff.gather_stuff(location, quantity)
+@app.route('/<location>')
+def welcome(location):
+    stuffs = stuff.gather_stuff(location, 9)
     # Somehow iterate the dict construction? Yeah.. that.
     things = [ # Array of first five Dicts
         {
@@ -89,8 +89,6 @@ def welcome(location, quantity):
     ]
     ### Not quite worked out yet ^^^
     
-    # Pass the thing snippets into five different instances
-    # of the same template with respective var
     return render_template('view_template.html', things=things, location=location)  # render a template
     # location = location... brilliant
     

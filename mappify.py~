@@ -56,7 +56,7 @@ def set_city_center(location):
     elif re.match("washingtondc", location, re.I):
         coord = [38.9047, -77.0164]
     elif re.match("vancouver", location, re.I):
-        coord = [49.2827, -123.1207]  
+        coord = [49.2827, 123.1207]  
     else:
         try:
             findit = geolocator.geocode(location) # Use Geolocator
