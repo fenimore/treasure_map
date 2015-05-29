@@ -39,7 +39,7 @@
 
   <div class="section hero">
     <div class="container">
-      <div class="row">
+      <div class="row" style="margin-bottom:5%;">
         <div class="one-half column" style="margin-top:7%">
           <h4 class="hero-heading">Treasure Map</h4>
           <a class="button button-primary" href="montreal/9">Try Montreal</a>
@@ -59,12 +59,7 @@
 
   <div class="section values">
     <div class="container">
-      <div class="row">
-      <div class="one-third column value">
-          <h2 class="value-multiplier">0</h2>
-          <h5 class="value-heading">Treasures Found</h5>
-          <p class="value-description"></p>
-      </div>
+      <div class="row" style="margin-right:10%;margin-left:10%;">
       <div class="one-third column value">
           <h2 class="value-multiplier">35%</h2>
           <h5 class="value-heading">Practicality</h5>
@@ -81,15 +76,19 @@
   </div>
 
   <div class="section get-help">
-    <div class="container">
+    <div class="container" >
+    <div style="margin-right:10%;margin-left:10%;">
       <h3 class="section-heading">Contact</h3>
       <p class="section-description"><a href="https://github.com/polypmer/treasurehunter">Here</a> is the source code.  
       email fenimore.love(at)workingagenda.com</p>
+      </div>
     </div>
   </div>
 
   <div class="section categories">
     <div class="container">
+      <div class="row">
+        <div clas="4 columns" style="margin-right:10%;margin-left:10%;">
       <h3 class="section-heading">Disclaimer</h3>
       <p class="section-description">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -99,6 +98,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
         </p><small>BEWARE OF EXCESSIVE ACCUMULATION.</small>
+        </div>
+      </div>
       <div class="row">
         <hr>
         Fenimore Love | 2015 (GPL)
