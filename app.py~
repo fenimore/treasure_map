@@ -97,7 +97,7 @@ def welcome(location, quantity):
 @app.route('/<location>/map')
 def show_map(location):
     place = location
-    stuffs = stuff.gather_stuff(location, 9)
+    #stuffs = stuff.gather_stuff(location, 9)
     try:
         mappify.post_map(stuffs)
     except:

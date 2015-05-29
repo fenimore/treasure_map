@@ -92,7 +92,7 @@ def post_map(freestuffs): # Pass in freestuffs list
     center_lat = start_coord[0]
     center_lon = start_coord[1]
     ######## 
-    map_osm = folium.Map([center_lat, center_lon], zoom_start=13) 
+    map_osm = folium.Map([center_lat, center_lon], zoom_start=10) # width=500,height=500
     # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps

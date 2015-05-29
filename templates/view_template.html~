@@ -3,39 +3,41 @@
   <head>
     <title>Recent Stuff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="static/s.css" rel="stylesheet" media="screen">
-    <link href="static/normalize.css" rel="stylesheet" media="screen">
+    <link href="../static/skeleton.css" rel="stylesheet" media="screen">
+    <link href="../static/normalize.css" rel="stylesheet" media="screen">
   </head>
   <body>
     <div class="container">
-      <h1>Recent items in {{ location.title() }}</h1>      
-      <button class="button-primary">Click <a href="/{{ location }}/map">here</a> to see the map.</button>
-      <br>
       <div class="row">
+      <h1>Recent items in {{ location.title() }}</h1>      
+      <a class=" button button-primary" href="/{{ location }}/map">Click here to see the map. (it takes a few seconds to load)</a>
+      <hr>
+      </div>
+
+      <div class="row" style="margin-top:5%;">
         <div class="one column">Select:</div>
         <div class="four columns">      
           {% for thing in things[:5] %}
-          <div border="solid">
-            <h4>{{ thing.place.title() }}</h4>
+          <div border="solid 1px" >
+            <h5>{{ thing.place.title() }} </h5>
             <a href ={{ thing.url }} target="_blank">
             <span title={{ thing.title }}>
             <img 
-                src= {{ thing.image }} width="200" 
-                alt= {{ thing.title }}  height=auto />
+                src= {{ thing.image }} width="auto" height="150px;" />
             </span>
             </a>
           </div>
-          
           {% endfor %}
         </div>
         <div class="four columns">
           {% for thing in things[5:] %}
           <div border="solid">
-            <h4>{{ thing.place.title() }}</h4>
+            <h5>{{ thing.place.title() }}</h5>
+            <span title={{ thing.title }}>
             <img href ={{ thing.url }} 
-                src= {{ thing.image }} width="200" height=auto
-                 alt= {{ thing.title }}  />
+                src= {{ thing.image }} width="auto" height="200px;" />
           </div>
+             </span>
           {% endfor %}
         </div>
       </div>
