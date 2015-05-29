@@ -89,8 +89,6 @@ def welcome(location):
     ]
     ### Not quite worked out yet ^^^
     
-    # Pass the thing snippets into five different instances
-    # of the same template with respective var
     return render_template('view_template.html', things=things, location=location)  # render a template
     # location = location... brilliant
     
