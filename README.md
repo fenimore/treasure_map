@@ -12,10 +12,10 @@ This is an implementation of <a href="https://github.com/polypmer/freestuff-bot"
 ## Application Intereface
 Something like this subject to change:
 <ul>
-<li>''domain.com/location/quantity''</li>
-<li>''domain.com/location/map'' for a quantity of 9
+<li>'domain.com/location/quantity'</li>
+<li>'domain.com/location/map' for a quantity of 9
 </li>
-<li>''domain.com/location>/map/quantity''  - for more or less entries , geocoder crashes around 20
+<li>'domain.com/location>/map/quantity'  - for more or less entries , geocoder crashes around 20
 </li>
 </ul>
 ## TODO: 
