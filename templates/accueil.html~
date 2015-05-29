@@ -39,7 +39,7 @@
 
   <div class="section hero">
     <div class="container">
-      <div class="row" style="margin-bottom:5%;">
+      <div class="row" style="margin-bottom:15%;">
         <div class="one-half column" style="margin-top:7%">
           <h4 class="hero-heading">Treasure Map</h4>
           <a class="button button-primary" href="montreal/9">Try Montreal</a>
