@@ -7,8 +7,8 @@
     <link href="../static/normalize.css" rel="stylesheet" media="screen">
     <style>
     .image-cropper {
-      width: 140px;
-      height: 140px;
+      width: 180px;
+      height: 180px;
       position: relative;
       overflow: hidden;
       -webkit-border-radius: 50%;
@@ -39,8 +39,9 @@
         <div class="three columns">      
           {% for thing in things[:3] %}
           <div border="solid 1px" >
-            <small>{{ thing.place.title() }} </small>
             <a href ={{ thing.url }} target="_blank">
+            <small>{{ thing.place.title() }} </small>
+            
             <span title={{ thing.title }}>
             <img class="image-cropper"
                 src= {{ thing.image }} />
@@ -53,10 +54,12 @@
         <div class="three columns">
           {% for thing in things[3:6] %}
           <div border="solid">
+          <a href ={{ thing.url }} target="_blank">
             <small>{{ thing.place.title() }}</small>
-            <span title={{ thing.title }}>
+            <span title={{ thing.title[] }}>
             <img class="image-cropper" href ={{ thing.url }} 
                 src= {{ thing.image }} width="auto" height="200px;" />
+                </a>
           </div>
              </span>
              <hr>
@@ -65,10 +68,12 @@
         <div class="three columns">
           {% for thing in things[6:] %}
           <div border="solid">
+          <a href ={{ thing.url }} target="_blank">
             <small>{{ thing.place.title() }}</small>
             <span title={{ thing.title }}>
             <img class="image-cropper" href ={{ thing.url }} 
                 src= {{ thing.image }} width="auto" height="200px;" />
+                </a>
           </div>
              </span>
              <hr>
