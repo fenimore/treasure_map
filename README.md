@@ -25,6 +25,7 @@ Something like this subject to change:
 * Navigation-bar | Bootstrap
 * Make X's for mappify's Map creation (for pirate theme...)
 * Fancy Legend, floating perhaps...
+* 404 error page...
 * **Loading screen**!!! I have an idea for this
 
 ### Issues:
