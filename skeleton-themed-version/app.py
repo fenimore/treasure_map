@@ -1,26 +1,32 @@
-import os
-from flask import Flask, render_template, send_from_directory
+###########################################################################
+# Copyright (C) 2015 Fenimore Love <fenimore@polypmer.com>
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
+# See https://github.com/polypmer/things
+###
+
+
+# import the Flask class from the flask module
+from flask import Flask, render_template
 import stuff, mappify
 
-# initialization
+# create the application object
 app = Flask(__name__)
-app.config.update(
-    DEBUG = True,
-)
 
-# controllers
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
+stuffs = []
+        
+# use decorators to link the function to a url
+@app.route('/')
+def home():
+    return render_template('accueil.html')
 
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-
-@app.route("/")
-def index():
-    return render_template('index.html')
-    
 @app.route('/<location>')
 def welcome(location):
     stuffs = stuff.gather_stuff(location, 9)
@@ -82,19 +88,43 @@ def welcome(location):
         },
     ]
     ### Not quite worked out yet ^^^
-    return render_template('view.html', things=things, location=location)  # render a template
+    
+    return render_template('view_template.html', things=things, location=location)  # render a template
     # location = location... brilliant
-
+    
 @app.route('/<location>/map')
 def show_map(location):
+    place = location
     stuffs = stuff.gather_stuff(location, 9)
     try:
         mappify.post_map(stuffs)
     except:
-        print("something when wrong") # Write to html page, problem sorrry
-    return render_template('map.html', location=location)
+        print("something when wrong")
+    return render_template('map_template.html', location=place)
 
-# launch
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+@app.route('/<location>/map/<int:quantity>')
+def show_more_map(location, quantity):
+    place = location
+    quantity -= 1
+    stuffs = stuff.gather_stuff(location, quantity)
+    mappify.post_map(stuffs)
+    return render_template('map_template.html', location=place)
+
+
+# start the server with the 'run()' method
+if __name__ == '__main__':
+    app.run()
+    
+    
+    
+""" 
+HTML snippets for future reference:
+          {% for thing in things %}
+          <div>
+            <h4>{{ thing.place.title() }}</h4>
+            <img href ={{ thing.url }} 
+                src= {{ thing.image }} width="160" height=auto>
+          </div>
+          {% endfor %}
+"""
+

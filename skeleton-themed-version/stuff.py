@@ -62,7 +62,7 @@ def gather_stuff(place, quantity):
     images = stuffify.get_images(soup)  # I can't believe this works..
 
     """Constructor Combobulator"""
-    freestuffs = [Stuff(things[x], urls[x], locs[x], images[x], place) for x in range(0, quantity)] # It can push all the way up to 20
+    freestuffs = [Stuff(things[x], urls[x], locs[x], images[x], place) for x in range(0,quantity)] # It can push all the way up to 20
     return freestuffs
 
 def test_montreal(): # for quick testing with ipython

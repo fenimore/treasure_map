@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %} - Home{% endblock %}
+{% block content %}
+<div class="row">
+<div class="col-md-9 col-md-offset-1">
+
+<h1>Recent items in {{ location.title() }}</h1>
+<button class="btn btn-success" href=/{{location}}/map><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Load Map</button>
+</div>
+</div>
+
+
+<div class="row">
+<hr>
+  <div class="col-md-3 col-md-offset-1">          
+          {% for thing in things[:3] %}
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><a href ={{ thing.url }} target="_blank">
+            <small>{{ thing.place.title() }} </small></a></h3>
+            </div>
+            <div class="panel-body">
+              <span title={{ thing.title }}>
+              <img class="image-cropper"
+                  src= {{ thing.image }} />
+              </span>
+            </div>
+          </div>
+          {% endfor %}
+  </div>  
+  <div class="col-md-3">          
+          {% for thing in things[3:6] %}
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title"><a href ={{ thing.url }} target="_blank">
+            <small>{{ thing.place.title() }} </small></a></h3>
+            </div>
+            <div class="panel-body">
+              <span title={{ thing.title }}>
+              <img class="image-cropper"
+                  src= {{ thing.image }} />
+              </span>
+            </div>
+          </div>
+          {% endfor %}
+  </div>
+  <div class="col-md-3">          
+          {% for thing in things[6:9] %}
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title"><a href ={{ thing.url }} target="_blank">
+            <small>{{ thing.place.title() }} </small></a></h3>
+            </div>
+            <div class="panel-body">
+              <span title={{ thing.title }}>
+              <img class="image-cropper"
+                  src= {{ thing.image }} />
+              </span>
+            </div>
+          </div>
+          {% endfor %}
+  </div>
+</div>
+        
+{% endblock %}
