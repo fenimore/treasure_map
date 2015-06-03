@@ -93,7 +93,7 @@ def show_map(location):
     except:
         error_string = "<h2>Woops, the mapping script crashed, try again?</h2>"
         f = open('raw_map.html', 'w') # Write to html page, problem sorrry
-        f.write(s)
+        f.write(error_string)
         f.close()
     return render_template('map.html', location=location)
     
@@ -105,7 +105,7 @@ def show_map_more(location):
     except:
         error_string = "<h2>Woops, the mapping script crashed, reload, maybe with a smaller amount of stuff</h2>"
         f = open('raw_map.html', 'w') # Write to html page, problem sorrry
-        f.write(s)
+        f.write(error_string)
         f.close()
     return render_template('map.html', location=location)
 
