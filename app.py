@@ -91,7 +91,22 @@ def show_map(location):
     try:
         mappify.post_map(stuffs)
     except:
-        print("something when wrong") # Write to html page, problem sorrry
+        error_string = "<h2>Woops, the mapping script crashed, try again?</h2>"
+        f = open('raw_map.html', 'w') # Write to html page, problem sorrry
+        f.write(s)
+        f.close()
+    return render_template('map.html', location=location)
+    
+@app.route('/<location>/map/<quantity>')
+def show_map(location):
+    stuffs = stuff.gather_stuff(location, quantity)
+    try:
+        mappify.post_map(stuffs)
+    except:
+        error_string = "<h2>Woops, the mapping script crashed, reload, maybe with a smaller amount of stuff</h2>"
+        f = open('raw_map.html', 'w') # Write to html page, problem sorrry
+        f.write(s)
+        f.close()
     return render_template('map.html', location=location)
 
 # launch
