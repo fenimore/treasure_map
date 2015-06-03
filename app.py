@@ -98,7 +98,7 @@ def show_map(location):
     return render_template('map.html', location=location)
     
 @app.route('/<location>/map/<quantity>')
-def show_map(location):
+def show_map_more(location):
     stuffs = stuff.gather_stuff(location, quantity)
     try:
         mappify.post_map(stuffs)
