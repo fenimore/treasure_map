@@ -1,6 +1,6 @@
 # Treasure Map in Flask
 
-This is an implementation of <a href="https://github.com/polypmer/freestuff-bot">freestuff-bot</a> using [Flask](www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map. It can be run with gunicorn app:app (or just by running app.py). Finally, unfortunetaly, the Heroku ip is automatically blocked by craigslist.
+This is an implementation of <a href="https://github.com/polypmer/freestuff-bot">freestuff-bot</a> using [Flask](www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map. It can be run with gunicorn app:app (or just by running app.py).  Unfortunetaly, the Heroku ip is automatically blocked by craigslist. Also, at the moment, using dreamhost's passenger doesn't work. I'm holding up for fastcgi.
 
 ## Dependencies
 * requests
@@ -22,10 +22,11 @@ Something like this subject to change:
 * A lot, namely re-write completely.
     - combine view and map page. with some jquery
 * Make X's for mappify's Map creation (for pirate theme...)
-* Fancy Legend, floating perhaps...
+* Fancy **Legend**, floating perhaps...
 * **Loading screen**!!!
 
 ### Issues:
+* Premature header? 
 * Major location problem, only five cities work?
     - get list of cities names
     - create dict/key?
