@@ -51,7 +51,7 @@ def get_coordinates(freestuff):
 def set_city_center(location):
     geolocator = Nominatim()
     if re.match("montreal", location, re.I):
-        coord = [45.508, -73.587] # Montreal Center
+        coord = [45.5088, -73.5878] # Montreal Center
     elif re.match("newyork", location, re.I):
         coord = [40.7127, -74.0058] # New York Center
     elif re.match("toronto", location, re.I):
