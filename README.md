@@ -1,6 +1,6 @@
 # Treasure Map in Flask
 
-This is an implementation of <a href="https://github.com/polypmer/freestuff-bot">freestuff-bot</a> using [Flask](www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map. It can be run with gunicorn app:app (or just by running app.py).  Unfortunetaly, the Heroku ip is automatically blocked by craigslist. Also, at the moment, using dreamhost's passenger doesn't work. I'm holding up for fastcgi.
+This is an implementation of <a href="https://github.com/polypmer/freestuff-bot">freestuff-bot</a> using [Flask](www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map. It can be run with gunicorn app:app (or just by running app.py).  Unfortunately, the Heroku ip is automatically blocked by craigslist. Also, at the moment, using dreamhost's passenger doesn't work. I'm holding up for fastcgi.
 
 ## Dependencies
 * requests
