@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 # coding=utf-8
+
 ###########################################################################
 # Copyright (C) 2015 Fenimore Love <fenimore@polypmer.com>
 #
@@ -49,7 +51,7 @@ def get_coordinates(freestuff):
 def set_city_center(location):
     geolocator = Nominatim()
     if re.match("montreal", location, re.I):
-        coord = [45.5088, -73.5878] # Montreal Center
+        coord = [45.508, -73.587] # Montreal Center
     elif re.match("newyork", location, re.I):
         coord = [40.7127, -74.0058] # New York Center
     elif re.match("toronto", location, re.I):
@@ -98,6 +100,7 @@ def post_map(freestuffs): # Pass in freestuffs list
     center_lon = start_coord[1]
     ######## 
     map_osm = folium.Map([center_lat, center_lon], zoom_start=11) # width=500,height=500
+    # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps
     for freestuff in freestuffs:  
@@ -123,5 +126,5 @@ def post_map(freestuffs): # Pass in freestuffs list
           popup=name, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
-    map_osm.create_map(path='static/raw_map.html')
+    map_osm.create_map(path='treasuremap/templates/raw_map.html')
     # Open map? and then paste contents from soup?
