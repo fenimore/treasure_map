@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 ###########################################################################
 # Copyright (C) 2015 Fenimore Love <fenimore@polypmer.com>
 #
@@ -55,6 +57,7 @@ class Stuff(object):
 
 def gather_stuff(place, quantity):
     soup = stuffify.setup_page(place)   # soup, needs the user place for request
+    _quantity = int(quantity)
     """Construction"""
     locs = stuffify.get_locations(place, soup) # locations, needs user place for fine tuning
     urls = stuffify.get_urls(soup)      # urls of stuff
@@ -62,7 +65,7 @@ def gather_stuff(place, quantity):
     images = stuffify.get_images(soup)  # I can't believe this works..
 
     """Constructor Combobulator"""
-    freestuffs = [Stuff(things[x], urls[x], locs[x], images[x], place) for x in range(0, quantity)] # It can push all the way up to 20
+    freestuffs = [Stuff(things[x], urls[x], locs[x], images[x], place) for x in range(0, _quantity)] # It can push all the way up to 20
     return freestuffs
 
 def test_montreal(): # for quick testing with ipython

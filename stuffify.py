@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 ###########################################################################
 # Copyright (C) 2015 Fenimore Love <fenimore@polypmer.com>
 #
@@ -14,12 +16,13 @@
 
 import requests, re, folium, webbrowser
 from bs4 import BeautifulSoup
-
+from unidecode import unidecode
 # Setup the Location from User Input
 # Basically just for kicks
 def setup_place():
     user_place = input("What major city are you near? (or, 'help') ")
     if user_place == "help":
+        print("craigslist serves many major cities, and the peripheral neighborhoods, try something like 'montreal' or 'newyork'\n It's gotta be one word (no spaces) or funny characters, visit the craigslist.org site for your cities 'name'.\nAlso, the mappify module currently only works with montreal")
         user_place = input("What major city are you near? ")
     return user_place 
 
@@ -65,6 +68,7 @@ def get_locations(user_place, soup):
             _loc = user_place +", Somewhere"
         else:
             _loc = loc_node.strip('<small ()</small>')
+            _loc = unidecode(_loc)# unicodedata.normalize('NFKD', _loc).encode('ascii', 'ignore')
             _loc = _loc + ", " + user_place
         #print(_loc)#
         free_locations.append(_loc)

@@ -88,19 +88,13 @@ def welcome(location):
 @app.route('/<location>/map')
 def show_map(location):
     stuffs = stuff.gather_stuff(location, 9)
-    try:
-        mappify.post_map(stuffs)
-    except:
-        print("woops")
+    mappify.post_map(stuffs)
     return render_template('map.html', location=location)
     
 @app.route('/<location>/map/<quantity>')
-def show_map_more(location):
+def show_map_more(location, quantity):
     stuffs = stuff.gather_stuff(location, quantity)
-    try:
-        mappify.post_map(stuffs)
-    except:
-        print("woops")
+    mappify.post_map(stuffs)
     return render_template('map.html', location=location)
 
 # launch
