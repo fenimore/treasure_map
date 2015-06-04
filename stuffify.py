@@ -20,7 +20,6 @@ from bs4 import BeautifulSoup
 def setup_place():
     user_place = input("What major city are you near? (or, 'help') ")
     if user_place == "help":
-        print("craigslist serves many major cities, and the peripheral neighborhoods, try something like 'montreal' or 'newyork'\n It's gotta be one word (no spaces) or funny characters, visit the craigslist.org site for your cities 'name'.\nAlso, the mappify module currently only works with montreal")
         user_place = input("What major city are you near? ")
     return user_place 
 

@@ -1,8 +1,41 @@
 {% extends "base.html" %}
 {% block title %} - Home{% endblock %}
 {% block content %}
-<h1>Treasures of {{ location.title() }}</h1> 
-<hr>
-{% include 'raw_map.html' %}
-          
+<div class="row">
+  <div class="col-md-6">
+    <h1>Treasures in {{ location.title() }}</h1> 
+  </div>
+</div>   
+<div class="row">
+  <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          The listings are represented in diminishing order. <br>The <b>smaller</b> the posting, the older it is. <br>The <b>darker</b> the border, the higher the amount of overlap.<br>If the script can't find the location, it places it in the <b>city-center</b>.
+        </div>
+      </div>
+  </div>
+    <div class="col-md-6">
+      <div class="panel panel-danger">
+        <div class="panel-body">
+          If empty, try <b>zooming out.</b><br>
+          treasure.plyp.org/"location"/map | Default 10 items.<br>
+          treasure.plyp.org/"location"/map/x | The geocoder crashes around 15/20 items.<br><br>
+          <button class="btn btn-primary btn-xs" href="{{location}}/map/15">
+          Load 15 Items</button>
+        </div>
+      </div>
+    </div>
+</div>   
+<div class="row">
+  <div class="col-md-11">
+    <hr>
+    <div class="panel panel-success">
+      <div class="panel-body">
+        {% include 'raw_map.html' %}
+      </div>
+    </div>
+
+    <hr>
+  </div>
+</div>      
 {% endblock %}

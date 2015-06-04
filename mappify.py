@@ -98,7 +98,6 @@ def post_map(freestuffs): # Pass in freestuffs list
     center_lon = start_coord[1]
     ######## 
     map_osm = folium.Map([center_lat, center_lon], zoom_start=11) # width=500,height=500
-    # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps
     for freestuff in freestuffs:  
@@ -124,5 +123,5 @@ def post_map(freestuffs): # Pass in freestuffs list
           popup=name, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
-    map_osm.create_map(path='templates/raw_map.html')
+    map_osm.create_map(path='static/raw_map.html')
     # Open map? and then paste contents from soup?

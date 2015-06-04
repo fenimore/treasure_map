@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="//rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="//rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="//birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
+<body>
+
+   <div class="folium-map" id="folium_7a2e937165cb4079aff229ec9d0c44d9" style="width: 960px; height: 500px"></div>
+
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_7a2e937165cb4079aff229ec9d0c44d9', {
+                                       center:[40.7127, -74.0058],
+                                       zoom: 11,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+
+      
+      var circle_1 = L.circle([40.7646248, -73.9539235], 500, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_1.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>FREE COUCH</h3>\n                <h4>newyork, Somewhere</h4>\n                <a href='http://newyork.craigslist.ca/brk/zip/5057892628.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_1._popup.options.maxWidth = 300;
+      map.addLayer(circle_1)
+      
+      var circle_2 = L.circle([40.751700, -73.970700], 490, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_2.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>Free snacks must go NOW!!!</h3>\n                <h4>Midtown, newyork</h4>\n                <a href='http://newyork.craigslist.ca/mnh/zip/5057887100.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_2._popup.options.maxWidth = 300;
+      map.addLayer(circle_2)
+      
+      var circle_3 = L.circle([40.665763, -73.997469], 480, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_3.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>Free pallets</h3>\n                <h4>77 19th Street, newyork</h4>\n                <a href='http://newyork.craigslist.ca/brk/zip/5057876867.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_3._popup.options.maxWidth = 300;
+      map.addLayer(circle_3)
+      
+      var circle_4 = L.circle([40.690700, -73.927400], 470, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_4.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>take now asap</h3>\n                <h4>newyork, Somewhere</h4>\n                <a href='http://newyork.craigslist.ca/brk/zip/5057831583.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_4._popup.options.maxWidth = 300;
+      map.addLayer(circle_4)
+      
+      var circle_5 = L.circle([40.587700, -73.659500], 460, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_5.bindPopup("\n                <img src='https://images.craigslist.org/00505_6k4BPFpnrw5_300x300.jpg' height='auto' width='160px' />\n                <h3>Free trees</h3>\n                <h4>newyork, Somewhere</h4>\n                <a href='http://newyork.craigslist.ca/lgi/zip/5053707838.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_5._popup.options.maxWidth = 300;
+      map.addLayer(circle_5)
+      
+      var circle_6 = L.circle([40.702000, -74.089000], 450, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_6.bindPopup("\n                <img src='https://images.craigslist.org/00y0y_5D6yHKoSjax_300x300.jpg' height='auto' width='160px' />\n                <h3>Red nose Pitt for sale</h3>\n                <h4>newyork, Somewhere</h4>\n                <a href='http://newyork.craigslist.ca/jsy/zip/5057845964.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_6._popup.options.maxWidth = 300;
+      map.addLayer(circle_6)
+      
+      var circle_7 = L.circle([40.772612, -73.944426], 440, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_7.bindPopup("\n                <img src='https://images.craigslist.org/00u0u_eu83wMnmQXX_300x300.jpg' height='auto' width='160px' />\n                <h3>Free! Toddler Bed</h3>\n                <h4>Upper East Side, newyork</h4>\n                <a href='http://newyork.craigslist.ca/mnh/zip/5057844255.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_7._popup.options.maxWidth = 300;
+      map.addLayer(circle_7)
+      
+      var circle_8 = L.circle([40.7646248, -73.9539235], 430, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_8.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>FREE cardboard boxes</h3>\n                <h4>Dobbs Ferry, newyork</h4>\n                <a href='http://newyork.craigslist.ca/wch/zip/5057844178.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_8._popup.options.maxWidth = 300;
+      map.addLayer(circle_8)
+      
+      var circle_9 = L.circle([41.011800, -73.866500], 420, {
+                            color: '#000000',
+                            fillColor: '#FF0000',
+                            fillOpacity: 0.2
+                            });
+      circle_9.bindPopup("\n                <img src='https://images.craigslist.org/01212_dUWvrlTQ6JC_300x300.jpg' height='auto' width='160px' />\n                <h3>Guitar Hero guitar for ps2</h3>\n                <h4>Dobbs Ferry, newyork</h4>\n                <a href='http://newyork.craigslist.ca/wch/zip/5057826580.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_9._popup.options.maxWidth = 300;
+      map.addLayer(circle_9)
+      
+
+      
+
+      
+
+      
+
+      
+
+   </script>
+
+</body>
