@@ -2,19 +2,16 @@
 {% block title %} - Home{% endblock %}
 {% block content %}
 <div class="row">
-  <div class="col-md-9 col-md-offset-1">
-    <h1>Recent items in {{ location.title() }}</h1>
-  </div>
+<div class="col-md-9 col-md-offset-1">
+
+<h1>Recent items in {{ location.title() }}</h1>
+<a class="btn btn-success" href="/{{location}}/map" ><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Load Map</a>
 </div>
-<div class="row">
-  <div class="col-md-9 col-md-offset-1 text-center"><br>
-    <a class="btn btn-success btn-lg center-block" href={{location}}/map ><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Load Map</a>
-    <hr>
-  </div>
 </div>
 
-<div class="row">
 
+<div class="row">
+<hr>
   <div class="col-md-3 col-md-offset-1">          
           {% for thing in things[:3] %}
           <div class="panel panel-info">
@@ -24,7 +21,7 @@
             </div>
             <div class="panel-body">
               <span title={{ thing.title }}>
-              <img class="img-thumbnail img-responsive center-block" style="max-height:100%"
+              <img class="image-cropper"
                   src= {{ thing.image }} />
               </span>
             </div>
@@ -40,7 +37,7 @@
             </div>
             <div class="panel-body">
               <span title={{ thing.title }}>
-              <img class="img-thumbnail img-responsive center-block" style="max-height:100%"
+              <img class="image-cropper"
                   src= {{ thing.image }} />
               </span>
             </div>
@@ -56,7 +53,7 @@
             </div>
             <div class="panel-body">
               <span title={{ thing.title }}>
-              <img class="img-thumbnail img-responsive center-block" style="max-height:100%"
+              <img class="image-cropper"
                   src= {{ thing.image }} />
               </span>
             </div>

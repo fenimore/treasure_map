@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %} - Home{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-md-5">    
+    <h4>Treasure Map</h4>
+    <h5>What and Where</h5>
+    <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Try Your Nearest City
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation" class="dropdown-header">Well Formed</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/montreal">Montréal</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/newyork">New York</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="/washingtondc">D.C.</a></li>
+    <li role="presentation" class="dropdown-header">Under Construction</li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto">Toronto</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver">Vancouver</a></li>
+  </ul>
+</div>
+    
+    <hr>
+    <p>This application is Treasure Map, a way for plotting <b>free stuff</b> posted on craigslist onto a map. </p>
+    <p>Treasure Map requires the precise name of the stuff's city, without spaces in order for the url to work. <b>New York is then newyork</b>. Currently only five cities are supported: Montreal, Toronto, Vancouver, Washington D.C., and New York. <br> Try: <a href="/washingtondc">D.C.</a> or <a href="/newyork">New York</a>.</p>
+  </div>
+  <div class="col-md-6">
+            <img 
+          src="../static/img/compass.png" style="width:300px;height:auto">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <h3 class="section-heading">Contact</h3>
+      <p class="section-description">Click <a href="https://github.com/polypmer/treasure-map">here</a> for the source code.<br>
+      Current contact information is in <a href="http://polypmer.org">transition</a>. Or email the author here:<br> 
+      email fenimore.love(at)workingagenda.com</p>  
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <h3 class="section-heading">Application Interface</h3>
+      <p>The default map and location page loads 10 items. The geolocator crashes around 20 items, give or take.
+      <ul>
+        <li>thisdomain.com/location</li>
+        <li>thisdomain.com/location/map</li>
+        <li>thisdomain.com/location/map/quantity</li>
+      </ul>
+      
+        </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+      <h3>Disclaimer</h3>
+      <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+        </p><small>BEWARE OF EXCESSIVE ACCUMULATION.</small>
+  </div>
+</div>
+{% endblock %}
