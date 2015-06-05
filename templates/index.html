@@ -1,42 +1,75 @@
 {% extends "base.html" %}
 {% block title %} - Home{% endblock %}
 {% block content %}
-<div class="row">
-  <div class="col-md-5">    
+<div class="row" style="margin-top:5%">
+  <div class="col-md-5">
+    <div>    
     <h1>The Treasure Map</h1>
-    <h5>What and Where</h5>
-    <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Try Your Nearest City
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    <li role="presentation" class="dropdown-header">More or Less Working</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/montreal">Montréal</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/newyork">New York</a></li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="/washingtondc">D.C.</a></li>
-    <li role="presentation" class="dropdown-header">Under Construction</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto">Toronto</a></li>
-        <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver">Vancouver</a></li>
-    <li role="presentation" class="dropdown-header">Planned</li>
-    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia">Philadelphia</a></li>
-  </ul>
-</div>
-    
+    <br>
+    </div>
+    <div class=row>
+      <div class="col-md-3">
+        <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle text-center btn-large" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  View City
+          <span class="caret"></span>
+        </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">Canada</li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal">Montréal</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto">Toronto</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver">Vancouver</a></li>
+            <li role="presentation" class="dropdown-header">USA</li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="newyork">New York</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc">D.C.</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia">Philadelphia</a></li>
+          </ul>  
+        </div>
+      </div>
+      <div class="col-md-3 col-md-offset-1">
+        <div class="dropdown">
+          <button class="btn btn-large btn-success dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Load Map
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+            <li role="presentation" class="dropdown-header">Canada</li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal/map">Montréal</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto/map">Toronto</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver/map">Vancouver</a></li>
+            <li role="presentation" class="dropdown-header">USA</li>
+            <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork/map">New York</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc/map">D.C.</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia/map">Philadelphia</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <hr>
-    <p>This application is Treasure Map, a way for plotting <b>free stuff</b> posted on craigslist onto a map. <b>Zero to no cost!</b></p>
-    <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work. <b>New York is then newyork</b>.<br> Currently only five cities are supported: Montreal, Toronto, Vancouver, Washington D.C., and New York. <br> Try: <a href="/washingtondc">D.C.</a> or <a href="/newyork">New York</a>.</p>
+    <p>This application is a treasure map, a map of <b>free stuff</b>.<br> <b>Zero to no cost!</b></p>
+    <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work. <b>New York is then newyork</b>. This distrupts the coordinate getters and setters, but many cities should work (likely those with one word names). Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.</p>
+          <div class="panel panel-warning">
+            <div class="panel-body">
+              The program which calculates the coordinates for stuff-locations will sometimes crash. If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"), try refreshing the page.
+            </div>
+          </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4" style="margin-top:3%">
             <img 
-          src="../static/img/compass.png" style="width:300px;height:auto">
+          src="static/img/compass.png" style="width:300px;height:auto">
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6" style="margin-top:10%">
+<hr>
+  <div class="col-md-6" style="margin-top:5%">
+  <h2 class="text-center">About</h2>
   <hr>
-      <h3 class="section-heading">Contact</h3>
-      <p class="section-description">Click <a href="https://github.com/polypmer/treasure-map">here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a> for the freestuff-bot standalone.<br>
+     <p>
+      The main use of this website is to compare craigslist
+ free stuff postings by <b>location</b>. The distance of free stuff is directly
+related to its value.
+     </p>
+      <p>Click <a href="https://github.com/polypmer/treasure-map">here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a> for the freestuff-bot standalone. The application is written in Python3 using the Flask framework among other packages. <br>
       Email the author here:<br> 
       email fenimore.love(at)workingagenda.com</p>  
   </div>
@@ -46,11 +79,10 @@
       <h3 class="section-heading">Application Interface</h3>
       <p>The default map and location page loads 10 items. The geolocator crashes around 20 items, give or take.
       <ul>
-        <li>thisdomain.com/location</li>
-        <li>thisdomain.com/location/map</li>
-        <li>thisdomain.com/location/map/quantity</li>
+        <li>treasure.plyp.org/location</li>
+        <li>treasure.plyp.org/location/map</li>
+        <li>treasure.plyp.org/location/map/quantity</li>
       </ul>
-      
         </p>
   </div>
 </div>

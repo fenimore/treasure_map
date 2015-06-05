@@ -43,8 +43,12 @@ def get_coordinates(freestuff):
             lat = geolocator.geocode(freestuff.location).latitude
             lon = geolocator.geocode(freestuff.location).longitude
         except:
-            lat = geolocator.geocode(freestuff.user_location).latitude
-            lon = geolocator.geocode(freestuff.user_location).longitude
+            try:
+                lat = geolocator.geocode(freestuff.user_location).latitude
+                lon = geolocator.geocode(freestuff.user_location).longitude
+            except:
+                lat = 38.9047 # This is DC
+                lon = -77.0164 
     return [lat, lon]
 
 """Setter for Starting Longitude Latitude"""
@@ -55,7 +59,7 @@ def set_city_center(location):
     elif re.match("newyork", location, re.I):
         coord = [40.7127, -74.0058] # New York Center
     elif re.match("toronto", location, re.I):
-        coord = [43.98, -74.72] # Toronto? Center TODO: 
+        coord = [43.7, -79.4000] # Toronto? Center TODO: 
     elif re.match("washingtondc", location, re.I):
         coord = [38.9047, -77.0164]
     elif re.match("vancouver", location, re.I):
@@ -99,7 +103,7 @@ def post_map(freestuffs): # Pass in freestuffs list
     center_lat = start_coord[0]
     center_lon = start_coord[1]
     ######## 
-    map_osm = folium.Map([center_lat, center_lon], zoom_start=11) # width=500,height=500
+    map_osm = folium.Map([center_lat, center_lon], zoom_start=10) # width=500,height=500
     # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps

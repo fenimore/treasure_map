@@ -2,9 +2,10 @@
 {% block title %} - Page Not Found{% endblock %}
 {% block content %}
   <h1>Something went wrong! (404)</h1>
-  <p><a href="{{ url_for('index') }}">home</a>
-    <br>
+  <p>
+    <hr>
     Make sure you didn't write a '/' at the end of the url.<br>
-    Some locations aren't tested and/or aren't working.
+    Some locations aren't tested and/or aren't working.<br>
+    The Geocoder timesout around 20 items.
   </p>
 {% endblock %}
