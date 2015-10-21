@@ -14,7 +14,7 @@
 #
 #
 ###
-
+import os
 from geopy.geocoders import Nominatim
 from bs4 import BeautifulSoup
 import requests, re, folium, webbrowser
@@ -48,7 +48,7 @@ def get_coordinates(freestuff):
                 lon = geolocator.geocode(freestuff.user_location).longitude
             except:
                 lat = 38.9047 # This is DC
-                lon = -77.0164 
+                lon = -77.0164
     return [lat, lon]
 
 """Setter for Starting Longitude Latitude"""
@@ -59,11 +59,11 @@ def set_city_center(location):
     elif re.match("newyork", location, re.I):
         coord = [40.7127, -74.0058] # New York Center
     elif re.match("toronto", location, re.I):
-        coord = [43.7, -79.4000] # Toronto? Center TODO: 
+        coord = [43.7, -79.4000] # Toronto? Center TODO:
     elif re.match("washingtondc", location, re.I):
         coord = [38.9047, -77.0164]
     elif re.match("vancouver", location, re.I):
-        coord = [49.2827, -123.1207]  
+        coord = [49.2827, -123.1207]
     else:
         try:
             findit = geolocator.geocode(location) # Use Geolocator
@@ -74,12 +74,12 @@ def set_city_center(location):
             coord = [0,0] # This is a bit silly
     return coord
 
-"""Rendering the Map pretty Colors""" # TODO: Read about if statements 
+"""Rendering the Map pretty Colors""" # TODO: Read about if statements
 def sort_stuff(stuff): # This doesn't work...
     color = ""
     furniture_pattern = "(wood|shelf|table|chair|scrap)"
     electronics_pattern = "(tv|sony|écran|speakers)" #search NOT match
-    find_pattern = "(book|games|cool)"  
+    find_pattern = "(book|games|cool)"
     if re.search(furniture_pattern, stuff, re.I):
         color = "#FF0000" #red ##### THIS should set variable and return at
     if re.search(electronics_pattern, stuff, re.I): #the end all
@@ -87,9 +87,9 @@ def sort_stuff(stuff): # This doesn't work...
     if re.search(find_pattern, stuff, re.I):
         color = "#000000" #black
     else:
-        color = "#FF0000" #white
+        color = "white" #white
     return color
-        
+
 """
     Pass stuffs into an HTML page
     Post listings in map; LOOKS more complicated than it is
@@ -97,17 +97,17 @@ def sort_stuff(stuff): # This doesn't work...
     Make sure python -m http.server is running in the directory
 """
 def post_map(freestuffs): # Pass in freestuffs list
-    # TODO: This part sucks
+    # TODO: This part sucks---- Oct, 2015, does it?
     user_location = freestuffs[0].user_location
     start_coord = set_city_center(user_location)
     center_lat = start_coord[0]
     center_lon = start_coord[1]
-    ######## 
-    map_osm = folium.Map([center_lat, center_lon], zoom_start=10) # width=500,height=500
+    ######### This is where I define the size of map
+    map_osm = folium.Map([center_lat, center_lon], zoom_start=12, width='100%', height='100%') # width=500,height=500
     # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps
-    for freestuff in freestuffs:  
+    for freestuff in freestuffs:
         # Loop through the Stuff and Post it
         place = freestuff.location  # thing location
         thing = freestuff.thing     # thing Title
@@ -130,5 +130,6 @@ def post_map(freestuffs): # Pass in freestuffs list
           popup=name, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
-    map_osm.create_map(path='treasuremap/templates/raw_map.html')
+    path = os.getcwd() # I think something else works on dreamhost
+    map_osm.create_map(path= path + '/templates/raw_map.html')
     # Open map? and then paste contents from soup?

@@ -31,7 +31,7 @@ def setup_page(user_place):
     free_url = 'http://' + user_place +'.craigslist.com/search/zip'
     try:
         free_page = requests.get(free_url)
-        soup = BeautifulSoup(free_page.text)
+        soup = BeautifulSoup(free_page.text, 'html.parser')
     except:
         soup = "something when wrong" # Something informative
     return soup

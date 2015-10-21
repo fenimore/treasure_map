@@ -8,6 +8,15 @@ app.config.update(
     DEBUG = True,
 )
 
+def refine_city_name(location):
+    if location == 'newyork':
+        loc = 'New York'
+    elif location == 'washingtondc':
+        loc = 'Washington D.C.'
+    else:
+        loc = location
+    return loc
+
 # controllers
 @app.route('/favicon.ico')
 def favicon():
@@ -20,67 +29,20 @@ def page_not_found(e):
 @app.route("/")
 def index():
     return render_template('index.html')
-    
+
 @app.route('/<location>')
 def welcome(location):
     stuffs = stuff.gather_stuff(location, 9)
     # Somehow iterate the dict construction? Yeah.. that.
-    things = [ # Array of first five Dicts
-        {
-            'url': stuffs[0].url, 
-            'image': stuffs[0].image, 
-            'place': stuffs[0].location,
-            'title': stuffs[0].thing
-        },
-        {
-            'url': stuffs[1].url,
-            'image': stuffs[1].image,
-            'place': stuffs[1].location,
-            'title': stuffs[1].thing
-        },
-        {
-            'url': stuffs[2].url, 
-            'image': stuffs[2].image,
-            'place': stuffs[2].location,
-            'title': stuffs[2].thing
-        },
-        {
-            'url': stuffs[3].url, 
-            'image': stuffs[3].image,
-            'place': stuffs[3].location,
-            'title': stuffs[3].thing
-        },
-        {
-            'url': stuffs[4].url, 
-            'image': stuffs[4].image,
-            'place': stuffs[4].location,
-            'title': stuffs[4].thing
-        },
-                {
-            'url': stuffs[5].url, 
-            'image': stuffs[5].image,
-            'place': stuffs[5].location,
-            'title': stuffs[5].thing
-        },
-        {
-            'url': stuffs[6].url, 
-            'image': stuffs[6].image,
-            'place': stuffs[6].location,
-            'title': stuffs[6].thing
-        },
-        {
-            'url': stuffs[7].url, 
-            'image': stuffs[7].image,
-            'place': stuffs[7].location,
-            'title': stuffs[7].thing
-        },
-        {
-            'url': stuffs[8].url, 
-            'image': stuffs[8].image,
-            'place': stuffs[8].location,
-            'title': stuffs[8].thing
-        },
-    ]
+    things =[]
+    for x in range(9):
+        thing = {
+            'url': stuffs[x].url,
+            'image': stuffs[x].image,
+            'place': stuffs[x].location,
+            'title': stuffs[x].thing
+            }
+        things.append(thing)
     ### Not quite worked out yet ^^^
     return render_template('view.html', things=things, location=location)  # render a template
     # location = location... brilliant
@@ -89,15 +51,40 @@ def welcome(location):
 def show_map(location):
     stuffs = stuff.gather_stuff(location, 9)
     mappify.post_map(stuffs)
-    return render_template('map.html', location=location)
-    
+    things =[]
+    for x in range(9):
+        thing = {
+            'url': stuffs[x].url,
+            'image': stuffs[x].image,
+            'place': stuffs[x].location,
+            'title': stuffs[x].thing
+            }
+        things.append(thing)
+    return render_template('map.html', location=location, things=things)
+
 @app.route('/<location>/map/<quantity>')
 def show_map_more(location, quantity):
     stuffs = stuff.gather_stuff(location, quantity)
     mappify.post_map(stuffs)
-    return render_template('map.html', location=location)
+    #ten = 9
+    #if int(quantity) < ten:
+    #    ten = int(quantity) - 1
+    things =[]
+    for x in range(int(quantity)):
+        thing = {
+            'url': stuffs[x].url,
+            'image': stuffs[x].image,
+            'place': stuffs[x].location,
+            'title': stuffs[x].thing
+            }
+        things.append(thing)
+    location = refine_city_name(location)
+    return render_template('map.html', location=location, things=things)
 
 # launch
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
+# Form for searching items
+# Form takes in city, as well?

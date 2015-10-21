@@ -11,27 +11,108 @@
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"  rel="stylesheet">
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+    <style>
+    /* Move down content because we have a fixed navbar that is 50px tall */
+.jumbotron {
+  margin-top: -20px;
+  background-color: #00BDBA;
+  color: white;
+}
+    .folium-map { z-index:0; position:fixed; width:100%;height:100%; margin:0; padding-top:70px; }
+    ul {list-style:none; }
+
+    #recent-display{
+        width: 100%;
+        height: 320px;
+        overflow: auto;
+    }
+  #loading {
+    width: 35px;
+    height: 35px;
+    display: none;
+    background: url(/static/loadingimage.gif) no-repeat;
+    cursor: wait;
+    }
+    #map {
+      margin-top:54px;
+    }
+    </style>
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
     {% endblock %}
-    
+
   </head>
   <body>
+    <div id="loading"></div>
     {% block navbar %}
-    <div class="navbar navbar-static-top navbar-default">
-      <div class="container">
-      <a class="navbar-brand" href="/"><img width="30px" height="30px" src="../static/img/noun_89070.png"> The Treasure Map</a>
-        <div class="nav-collapse">
-          {% block navbar_right %}
-          {% endblock %}
-        </div><!--/.nav-collapse -->
-      </div>
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Treasure Map</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav nav-tabs navbar-nav">
+                <li><a href="/#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> City Map <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation" class="dropdown-header">Canada</li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal/map" onclick='loading();'>Montréal</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto/map">Toronto</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver/map">Vancouver</a></li>
+                    <li role="presentation" class="dropdown-header">USA East Coast</li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork/map">New York</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc/map">D.C.</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia/map">Philadelphia</a></li>
+                    <li role="presentation" class="dropdown-header">USA West Coast</li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco/map">San Francisco</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle/map">Seattle</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> City Listings <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation" class="dropdown-header">Canada</li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal" onclick='loading();'>Montréal</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto">Toronto</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver">Vancouver</a></li>
+                    <li role="presentation" class="dropdown-header">USA East Coast</li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork">New York</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc">D.C.</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia">Philadelphia</a></li>
+                    <li role="presentation" class="dropdown-header">USA West Coast</li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco">San Francisco</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle">Seattle</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="5880 Rue Chambord, Montreal">
+                  </div>
+                  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button>
+                </form>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+      </div><!--/.nav-container -->
     </div>
     {% endblock %}
+    {% block jumbo %}
+
+    {% endblock %}
     <div class="container page">
-        <div class="content">
           {% block content %}
-          
+
           {% endblock %}
-        </div>
         <hr>
         {% block footer %}
         <footer class="footer">

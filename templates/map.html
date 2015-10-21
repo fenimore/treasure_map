@@ -1,41 +1,87 @@
 {% extends "base.html" %}
-{% block title %} - Home{% endblock %}
+{% block title %} - {{ location.title() }}{% endblock %}
 {% block content %}
-<div class="row">
-  <div class="col-md-6">
-    <h1>Treasures in {{ location.title() }}</h1> 
-  </div>
-</div>   
-<div class="row">
-  <div class="col-md-5">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          The listings are represented in diminishing order. <br>The <b>smaller</b> the posting, the older it is. <br>The <b>darker</b> the border, the higher the amount of overlap.<br>If the script can't find the location, it places it in the <b>city-center</b>.
-        </div>
-      </div>
-  </div>
-    <div class="col-md-6">
-      <div class="panel panel-danger">
-        <div class="panel-body">
-          If empty, try <b>zooming out.</b><br>
-          treasure.plyp.org/"location"/map | Default 10 items.<br>
-          treasure.plyp.org/"location"/map/x | The geocoder crashes around 15/20 items.<br><br>
-          <a class="btn btn-primary btn-xs" href="map/15" >
-          Load 15 Items</a>
-        </div>
-      </div>
-    </div>
-</div>   
-<div class="row">
-  <div class="col-md-11">
-    <hr>
-    <div class="panel panel-success">
-      <div class="panel-body">
-        {% include 'raw_map.html' %}
-      </div>
-    </div>
 
-    <hr>
-  </div>
-</div>      
+<div id="map">
+  {% include 'raw_map.html' %}</div>
+
+<div class="row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-warning" style='width:100%'>
+        <div class="panel-heading">
+          <div class='panel-title text-center' style='padding:5px;'>
+            <h4>Treasures in {{ location.title() }}</h4>
+            <button class='btn btn-warning btn-sm' id='show-l-btn'>Legend</button>
+            <button class='btn btn-danger btn-sm' id='show-r-btn'>Listing</button>
+          </div>
+        </div>
+        <div id='legend' style='display:none' class="panel-body">
+          <small>Key</small><br>
+          <ul>
+            <li>The listings are represented in diminishing order.</li>
+            <li>The <b>smaller</b> the posting, the older it is. </li>
+            <li>The <b>darker</b> the border, the higher the amount of overlap.</li>
+          </ul>
+         <small>Trouble Shooting</small><br>
+          <ul>
+            <li>If the script can't find the location, it places it in the <b>city-center</b>.
+</li>
+            <li>If empty, try <b>zooming out.</b></li>
+          </ul>
+          <small>API</small><br>
+          <ul>
+            <li>treasure.plyp.org/"location"/map | Default 10 items.</li>
+            <li>treasure.plyp.org/"location"/map/x | The geocoder may crash around 20 items.</li>
+          </ul>
+          <a class="btn btn-danger btn-sm center-block" href="map/15" onclick="loading()">Load 15 Items</a>
+        </div>
+        <div id='recent' style='display:none' class='panel-body'>
+          <div id='recent-display'>
+            {% for thing in things %}
+            <div class="media">
+              <div class="media-left">
+                <a href={{ thing.url }} target="_blank" >
+                  <img class="pull-left media-object" style="width:64px"
+                      src={{ thing.image }} >
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">
+              {{ thing.title.title() }}</h4>
+              {{ thing.place.title() }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+<script>
+$(document).ready(function(){
+    $("#show-l-btn").click(function(){
+        $("#legend").toggle();
+        if ($('#recent').css('display') == 'block') {
+          $("#recent").toggle();
+        }
+    });
+});
+$(document).ready(function(){
+    $("#show-r-btn").click(function(){
+        $("#recent").toggle();
+        if ($('#legend').css('display') == 'block') {
+          $("#legend").toggle();
+        }
+    });
+});
+$(document).ready(function(){
+    function loading(){
+        $("#loading").show();
+        $("#content").hide();
+    }
+});
+</script>
 {% endblock %}
