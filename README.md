@@ -19,12 +19,13 @@ Something like this subject to change:
 <li>domain.com/location/**map**/quantity  - for more or less entries , **geocoder crashes around 20**</li>
 </ul>
 
-## TODO: 
+## TODO:
 * Make X's for mappify's Map creation (for pirate theme...)
 * Add form for user address
 * Add color scheme to legend
-* **Loading screen**!!!
+* **Loading screen**!!! -- change
 * Give it some style, jeez
+* Some sort of absolute URL flaskish thing needs to happen
 
 ### Issues:
 * Loader gif doesn't work?
@@ -38,6 +39,5 @@ Something like this subject to change:
     - Only a few locations have a supported map-center init
         - Others have to zoom out. Yuck.
 * Store stuffs list in a session??
-    - pass it through a link? 
+    - pass it through a link?
     - cut down load time...
-

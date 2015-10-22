@@ -2,7 +2,7 @@
 {% block title %} - Home{% endblock %}
 {% block jumbo %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+<div id='jumbo' class="jumbotron">
   <div class="container">
     <div class=row>
       <div class='col-md-4  col-md-offset-2'>
@@ -72,18 +72,18 @@ $(document).ready(function(){
 $("#show-l-btn").click(function(){
   $("#legend").toggle();
 });
-function loading(){
-  $("#loading").show();
-  $("#content").hide();
-}
 });
 $(document).ready(function(){
 $("#show-r-btn").click(function(){
   $("#recent").toggle();
 });
-
-
 });
+function loading(){
+  $("#loading").show();
+  $("#content").hide();
+  $("#jumbo").hide();
+
+}
 
 </script>
 {% endblock %}

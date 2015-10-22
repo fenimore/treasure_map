@@ -8,14 +8,14 @@
 </div>
 <div class="row">
   <div class="col-md-9 col-md-offset-1 text-center"><br>
-    <a class="btn btn-success btn-lg center-block" href={{location}}/map ><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Load Map</a>
+    <a class="btn btn-success btn-lg center-block" href={{location}}/map onclick='loading();'><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Load Map</a>
     <hr>
   </div>
 </div>
 
 <div class="row">
 
-  <div class="col-md-3 col-md-offset-1">          
+  <div class="col-md-3 col-md-offset-1">
           {% for thing in things[:3] %}
           <div class="panel panel-info">
             <div class="panel-heading">
@@ -30,8 +30,8 @@
             </div>
           </div>
           {% endfor %}
-  </div>  
-  <div class="col-md-3">          
+  </div>
+  <div class="col-md-3">
           {% for thing in things[3:6] %}
           <div class="panel panel-warning">
             <div class="panel-heading">
@@ -47,7 +47,7 @@
           </div>
           {% endfor %}
   </div>
-  <div class="col-md-3">          
+  <div class="col-md-3">
           {% for thing in things[6:9] %}
           <div class="panel panel-danger">
             <div class="panel-heading">
@@ -64,5 +64,12 @@
           {% endfor %}
   </div>
 </div>
-        
+<script>
+function loading(){
+  $("#loading").show();
+  $("#content").hide();
+  $("#jumbo").hide();
+
+}
+</script>
 {% endblock %}

@@ -26,12 +26,13 @@
         height: 320px;
         overflow: auto;
     }
-  #loading {
-    width: 35px;
-    height: 35px;
+  div#loading {
+    width: 100px;
+    height: 100px;
     display: none;
-    background: url(/static/loadingimage.gif) no-repeat;
     cursor: wait;
+    margin-left:45%;
+    margin-top:100px;
     }
     #map {
       margin-top:54px;
@@ -42,7 +43,6 @@
 
   </head>
   <body>
-    <div id="loading"></div>
     {% block navbar %}
     <div class="navbar navbar-default">
       <div class="container-fluid">
@@ -66,15 +66,15 @@
                   <ul class="dropdown-menu">
                     <li role="presentation" class="dropdown-header">Canada</li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal/map" onclick='loading();'>Montréal</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto/map">Toronto</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver/map">Vancouver</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto/map" onclick='loading();'>Toronto</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver/map" onclick='loading();'>Vancouver</a></li>
                     <li role="presentation" class="dropdown-header">USA East Coast</li>
-                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork/map">New York</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc/map">D.C.</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia/map">Philadelphia</a></li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork/map" onclick='loading();'>New York</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc/map" onclick='loading();'>D.C.</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia/map" onclick='loading();'>Philadelphia</a></li>
                     <li role="presentation" class="dropdown-header">USA West Coast</li>
-                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco/map">San Francisco</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle/map">Seattle</a></li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco/map" onclick='loading();'>San Francisco</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle/map" onclick='loading();'>Seattle</a></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -82,15 +82,15 @@
                   <ul class="dropdown-menu">
                     <li role="presentation" class="dropdown-header">Canada</li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="montreal" onclick='loading();'>Montréal</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto">Toronto</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver">Vancouver</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="toronto"  onclick='loading();'>Toronto</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="vancouver" onclick='loading();'>Vancouver</a></li>
                     <li role="presentation" class="dropdown-header">USA East Coast</li>
-                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork">New York</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc">D.C.</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia">Philadelphia</a></li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="newyork" onclick='loading();'>New York</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="washingtondc" onclick='loading();'>D.C.</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="philadelphia" onclick='loading();'>Philadelphia</a></li>
                     <li role="presentation" class="dropdown-header">USA West Coast</li>
-                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco">San Francisco</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle">Seattle</a></li>
+                    <li role="presentation"><a role="menuitem" tjabindex="-1" href="sanfrancisco" onclick='loading();'>San Francisco</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="seattle" onclick='loading();'>Seattle</a></li>
                   </ul>
                 </li>
               </ul>
@@ -109,7 +109,10 @@
     {% block jumbo %}
 
     {% endblock %}
-    <div class="container page">
+    <div id='loading'><img class="img-responsive center-block"
+        src='/static/img/loading.gif' /></div>
+
+    <div class="container page" id='content'>
           {% block content %}
 
           {% endblock %}
