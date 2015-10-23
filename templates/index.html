@@ -4,7 +4,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div id='jumbo' class="jumbotron">
   <div class="container">
-    <div class=row>
+    <div class=row style='padding-top:10%;padding-bottom:10%;'>
       <div class='col-md-4  col-md-offset-2'>
         <img src="static/img/compass_white.png" style="width:300px;height:auto" class='img-responsive center-block'>
       </div>
@@ -23,8 +23,8 @@
 
 {% block content %}
 <div class="row" style="margin-top:5%">
-  <div class="col-md-8  col-md-offset-2">
-          <h2>About</h2><a href="#about"></a>
+  <div class="col-md-8  col-md-offset-2"><a id="about"></a>
+          <h2>About</h2>
           <hr>
              <p>
               The main use of this website is to compare craigslist
@@ -34,8 +34,8 @@
              <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work. <b>New York is then newyork</b>. This distrupts the coordinate getters and setters, but many cities should work (likely those with one word names). Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.</p>
 
               <p>Click <a href="https://github.com/polypmer/treasure-map">here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a> for the freestuff-bot standalone. The application is written in Python3 using the Flask framework among other packages. <br>
-              Email the author here:<br>
-              email fenimore.love(at)workingagenda.com</p>
+              Email Fenimore, the author, here:<br>
+              fenimore.love(at)workingagenda.com</p>
               <div class="panel panel-warning">
                 <div class="panel-body">
                   The program which calculates the coordinates for stuff-locations will sometimes crash. If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"), try refreshing the page.

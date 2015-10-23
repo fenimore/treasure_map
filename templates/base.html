@@ -4,18 +4,20 @@
     {% block head %}
     <title>Treasure Map {% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Treasure Map">
-    <meta name="keywords" content="">
+    <meta name="description" content="Treasure Map of Craigslist free stuff postings">
+    <meta name="keywords" content="Craigslist Free Stuff Scraper">
     <meta name="author" content="Fenimore Love">
     <meta charset="utf-8">
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"  rel="stylesheet">
     <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ url_for('static', filename='ico/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
+
     /* Move down content because we have a fixed navbar that is 50px tall */
 .jumbotron {
   margin-top: -20px;
-  background-color: #00BDBA;
+  background-color: #52adda;
   color: white;
 }
     .folium-map { z-index:0; position:fixed; width:100%;height:100%; margin:0; padding-top:70px; }
@@ -60,7 +62,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav nav-tabs navbar-nav">
-                <li><a href="/#"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
+                <li><a href="/#about"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> City Map <span class="caret"></span></a>
                   <ul class="dropdown-menu">

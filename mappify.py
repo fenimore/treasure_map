@@ -64,6 +64,8 @@ def set_city_center(location):
         coord = [38.9047, -77.0164]
     elif re.match("vancouver", location, re.I):
         coord = [49.2827, -123.1207]
+    elif re.match("sanfrancisco", location, re.I):
+        coord = [37.773972, -122.431297]
     else:
         try:
             findit = geolocator.geocode(location) # Use Geolocator
@@ -130,6 +132,6 @@ def post_map(freestuffs): # Pass in freestuffs list
           popup=name, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
-    path = os.getcwd() # I think something else works on dreamhost
-    map_osm.create_map(path= path + '/templates/raw_map.html')
-    # Open map? and then paste contents from soup?
+    #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
+    path = os.getcwd() # For testing!
+    map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
