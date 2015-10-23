@@ -11,10 +11,10 @@
       <div class='col-md-4'>
         <h2>Treasure Map</h2>
         <p>This application is a treasure map, a map of <b>free stuff</b>. <br>
-          With the treasure map, <b>compare craigslist
-              free stuff postings by distance.<br>
-               Distance is directly
-              related to its value.</b></p>
+          With this treasure map, <b>compare craigslist
+              free stuff postings by distance.</b><br>
+               Remember, its Distance is directly
+              related to its value.</p>
       </div>
     </div>
   </div>
@@ -27,13 +27,21 @@
           <h2>About</h2>
           <hr>
              <p>
-              The main use of this website is to compare craigslist
-         free stuff postings by <b>location</b>. The distance of free stuff is directly
-        related to its value.
+              The main use of this application is to compare craigslist
+         free stuff postings by <b>location</b>. The distance of a free thing is directly
+        related to its value. There are many treasures to be found, using this application, hopefully,
+        you will find something near you worth giving a new home.
              </p>
-             <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work. <b>New York is then newyork</b>. This distrupts the coordinate getters and setters, but many cities should work (likely those with one word names). Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.</p>
+             <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work -- it must
+               conform to Craigslist's URL. <b>New York is then newyork</b>.
+               This may obfuscate the city's coordinates, but many cities should work 'out of the box'(likely those with one word names).
+               Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.
+               To try a city not listed on the navigation menu, simply enter the city name after the url (treasure.plyp.org).</p>
 
-              <p>Click <a href="https://github.com/polypmer/treasure-map">here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a> for the freestuff-bot standalone. The application is written in Python3 using the Flask framework among other packages. <br>
+              <p>I hope you find this treasure map both useful and efficient. Click <a href="https://github.com/polypmer/treasure-map">
+                here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a>
+                for the freestuff-bot standalone. This treasure map is written in Python 3 using the Flask framework among other packages.
+                <br>
               Email Fenimore, the author, here:<br>
               fenimore.love(at)workingagenda.com</p>
               <div class="panel panel-warning">
@@ -41,15 +49,20 @@
                   The program which calculates the coordinates for stuff-locations will sometimes crash. If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"), try refreshing the page.
                 </div>
               </div>
-
               <h3 class="section-heading">Application Interface</h3>
-              <p>The default map and location page loads 10 items. The geolocator crashes around 20 items, give or take.
+              <p>The default map and location page loads 10 items.
               <ul>
                 <li>treasure.plyp.org/location</li>
                 <li>treasure.plyp.org/location/map</li>
                 <li>treasure.plyp.org/location/map/quantity</li>
               </ul>
                 </p>
+                <h3 class="section-heading">Planned Features and Bugs</h3>
+                <ul>
+                  <li>Address Form - not yet implemented</li>
+                  <li>Where the style at?</li>
+                  <li>Menu doesn't work in the map</li>
+                </ul>
 
                 <h3>Disclaimer</h3>
                 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
