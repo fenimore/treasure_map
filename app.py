@@ -9,10 +9,12 @@ app.config.update(
 )
 
 def refine_city_name(location):
-    if location == 'newyork':
+    if location == 'newyork': # does this have to capitalized
         loc = 'New York'
     elif location == 'washingtondc':
         loc = 'Washington D.C.'
+    elif location == 'sanfrancisco':
+        loc = 'San Francisco'
     else:
         loc = location
     return loc
@@ -44,7 +46,8 @@ def welcome(location):
             }
         things.append(thing)
     ### Not quite worked out yet ^^^
-    return render_template('view.html', things=things, location=location)  # render a template
+    rlocation = refine_city_name(location) # Load button breaks if I dont' distinguish
+    return render_template('view.html', things=things, location=location, rlocation=rlocation)  # render a template
     # location = location... brilliant
 
 @app.route('/<location>/map')
@@ -60,6 +63,7 @@ def show_map(location):
             'title': stuffs[x].thing
             }
         things.append(thing)
+    location = refine_city_name(location)
     return render_template('map.html', location=location, things=things)
 
 @app.route('/<location>/map/<quantity>')
