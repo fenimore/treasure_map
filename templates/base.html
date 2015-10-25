@@ -103,11 +103,25 @@ h1, h2, h3, h4 {
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <form class="navbar-form navbar-left" role="search">
+                <form class="navbar-form navbar-left form-inline" role="search" action="{{ url_for('me')}}" method='post'>
                   <div class="form-group">
-                    <input type="text" class="form-control" placeholder="5880 Rue Chambord, Montreal">
+                    <input type="text" name='address' class="form-control" placeholder="5880 Rue Chambord, Montreal">
                   </div>
-                  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button>
+                  <div class="form-group">
+                    <select class="form-control" id="city" name='location'>
+                      <option disabled="disabled">---- Select City</option>
+                      <option value="montreal">Montréal</option>
+                      <option value="toronto">Toronto</option>
+                      <option value="vancouver">Vancouver</option>
+                      <option value="newyork">New York</option>
+                      <option value="washingtondc">D.C.</option>
+                      <option value="philadelphia">Philadelphia</option>
+                      <option value="sanfrancisco">San Francisco</option>
+                      <option value="seattle">Seattle</option>
+                    </select>
+
+                  </div>
+                  <button type="submit" class="btn btn-success" onclick="loading()"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Current Location</button>
                 </form>
               </ul>
             </div><!-- /.navbar-collapse -->

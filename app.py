@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 import stuff, mappify
 
 # initialization
@@ -84,6 +84,27 @@ def show_map_more(location, quantity):
         things.append(thing)
     location = refine_city_name(location)
     return render_template('map.html', location=location, things=things)
+
+@app.route('/me', methods=['POST'])
+def me():
+    if request.method == 'POST':
+            location = request.form['location']
+            address = request.form['address']
+            #address = address + ', ' + location # this messes up if the city isn't the same as the address
+            stuffs = stuff.gather_stuff(location, 9)
+            mappify.post_map(stuffs, address)
+            things =[]
+            for x in range(9):
+                thing = {
+                    'url': stuffs[x].url,
+                    'image': stuffs[x].image,
+                    'place': stuffs[x].location,
+                    'title': stuffs[x].thing
+                    }
+                things.append(thing)
+            location = refine_city_name(location)
+            return render_template('map.html', location=location, things=things, address=address)
+
 
 # launch
 if __name__ == "__main__":

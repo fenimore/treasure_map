@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block title %} - {{ location.title() }}{% endblock %}
+
 {% block content %}
-<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 
-<div id="map">
-  {% include 'raw_map.html' %}</div>
+<div id="map"> {% include 'raw_map.html' %}</div>
+<link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
+<style>
+body {
+font-family: 'IM Fell English', serif;
+}
+h1, h2, h3, h4 {
+font-family: 'IM Fell English', serif;
+}
 
+</style>
 <div class="row">
     <div class="col-md-8">
     </div>
@@ -13,9 +21,10 @@
       <div class="panel panel-success" style='width:100%'>
         <div class="panel-heading">
           <div class='panel-title text-center' style='padding:5px;'>
-            Treasures of {{ location.title() }}
+            {{ location.title() }}
             <button class='btn btn-primary btn-sm' id='show-l-btn'>Legend</button>
             <button class='btn btn-info btn-sm' id='show-r-btn'>Listing</button>
+            {{ address }}
           </div>
         </div>
         <div id='legend' style='display:none' class="panel-body">

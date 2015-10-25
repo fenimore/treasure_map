@@ -98,7 +98,7 @@ def sort_stuff(stuff): # This doesn't work...
     Everytime this script runs, findit.html gets a new map
     Make sure python -m http.server is running in the directory
 """
-def post_map(freestuffs): # Pass in freestuffs list
+def post_map(freestuffs, address=None): # Pass in freestuffs list
     # TODO: This part sucks---- Oct, 2015, does it?
     user_location = freestuffs[0].user_location
     start_coord = set_city_center(user_location)
@@ -132,6 +132,17 @@ def post_map(freestuffs): # Pass in freestuffs list
           popup=name, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
+    if address != None:
+        geolocator = Nominatim()
+        try:
+            add_lat = geolocator.geocode(address).latitude
+            add_lon = geolocator.geocode(address).longitude
+        except:
+            add_lat = 0
+            add_lon = 0
+        pop_up = address + str(add_lat) + str(add_lon)
+        map_osm.simple_marker(location=[add_lat, add_lon],
+          popup=address)
     #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
     path = os.getcwd() # For testing!
     map_osm.create_map(path= path + '/templates/raw_map.html') # For testing

@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <head>
    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
-   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 
-   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-   <link rel="stylesheet" href="//rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
-   <script src="//rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+   <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
 
 
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
-   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
 
-   <link rel="stylesheet" href="//birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+   <link rel="stylesheet" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
 
    
    
@@ -50,13 +50,13 @@
 
 <body>
 
-   <div class="folium-map" id="folium_10bf400ceca547a3bc5a625a7b8056b9" style="width: 100%px; height: 100%px"></div>
+   <div class="folium-map" id="folium_33e552c984ee48ee92a35904a0f312c4" style="width: 100%; height: 100%"></div>
 
    <script>
 
       
 
-      var base_tile = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      var base_tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
           minZoom: 1,
           attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -94,8 +94,8 @@
       /*
       Creates the map and adds the selected layers
       */
-      var map = L.map('folium_10bf400ceca547a3bc5a625a7b8056b9', {
-                                       center:[45.5088, -73.5878],
+      var map = L.map('folium_33e552c984ee48ee92a35904a0f312c4', {
+                                       center:[37.773972, -122.431297],
                                        zoom: 12,
                                        maxBounds: bounds,
                                        layers: [base_tile]
@@ -113,84 +113,84 @@
       
 
       
-      var circle_1 = L.circle([45.499700, -73.879623], 500, {
+      var circle_1 = L.circle([2.9593798, -76.2654946], 500, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_1.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>Curb Alert - Many children's articles</h3>\n                <h4>Ile Bizard, montreal</h4>\n                <a href='http://montreal.craigslist.ca/zip/5283314193.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_1.bindPopup("\n                <img src='https://images.craigslist.org/00505_he0jz8xCpCG_300x300.jpg' height='auto' width='160px' />\n                <h3>Sofa Bed - no smoke, no pets environment</h3>\n                <h4>pittsburg / antioch, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5248172507.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_1._popup.options.maxWidth = 300;
       map.addLayer(circle_1)
       
-      var circle_2 = L.circle([45.5020664, -73.5617624], 490, {
+      var circle_2 = L.circle([2.9593798, -76.2654946], 490, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_2.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>Satelite Diah & TV</h3>\n                <h4>West Island, montreal</h4>\n                <a href='http://montreal.craigslist.ca/zip/5283074819.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_2.bindPopup("\n                <img src='https://images.craigslist.org/00s0s_kt3eCaRQVfD_300x300.jpg' height='auto' width='160px' />\n                <h3>Couche for free</h3>\n                <h4>n jose north, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/sby/zip/5248424212.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_2._popup.options.maxWidth = 300;
       map.addLayer(circle_2)
       
-      var circle_3 = L.circle([45.454375, -73.545421], 480, {
+      var circle_3 = L.circle([37.657400, -122.423500], 480, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_3.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>free tv</h3>\n                <h4>montreal, Somewhere</h4>\n                <a href='http://montreal.craigslist.ca/zip/5282588077.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_3.bindPopup("\n                <img src='https://images.craigslist.org/00J0J_iOe4zPT6zN2_300x300.jpg' height='auto' width='160px' />\n                <h3>FREE - Home made longboard deck</h3>\n                <h4>outh san francisco, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/pen/zip/5284198431.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_3._popup.options.maxWidth = 300;
       map.addLayer(circle_3)
       
-      var circle_4 = L.circle([45.446856, -73.641429], 470, {
+      var circle_4 = L.circle([37.989060, -122.344780], 470, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_4.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>Weigelia bush free to good home</h3>\n                <h4>Ville St Pierre, montreal</h4>\n                <a href='http://montreal.craigslist.ca/zip/5282445015.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_4.bindPopup("\n                <img src='https://images.craigslist.org/01313_fvFuWRrvSjj_300x300.jpg' height='auto' width='160px' />\n                <h3>Six wood frame dining chairs with upholstered seats and backs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284192499.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_4._popup.options.maxWidth = 300;
       map.addLayer(circle_4)
       
-      var circle_5 = L.circle([45.480169, -73.587291], 460, {
+      var circle_5 = L.circle([37.990278, -122.345295], 460, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_5.bindPopup("\n                <img src='https://images.craigslist.org/00v0v_aAu6JUf4YT6_300x300.jpg' height='auto' width='160px' />\n                <h3>River stones - free!!!</h3>\n                <h4>St-Henri (Montre, montreal</h4>\n                <a href='http://montreal.craigslist.ca/zip/5282414879.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_5.bindPopup("\n                <img src='https://images.craigslist.org/01414_4aTHQI5T6sk_300x300.jpg' height='auto' width='160px' />\n                <h3>Four bar-height swivel chairs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284191757.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_5._popup.options.maxWidth = 300;
       map.addLayer(circle_5)
       
-      var circle_6 = L.circle([45.486694, -73.576276], 450, {
+      var circle_6 = L.circle([37.988722, -122.343063], 450, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_6.bindPopup("\n                <img src='https://images.craigslist.org/00c0c_1S88Tib4Szf_300x300.jpg' height='auto' width='160px' />\n                <h3>Save 3 Murraya plants</h3>\n                <h4>montreal, Somewhere</h4>\n                <a href='http://montreal.craigslist.ca/zip/5282114043.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_6.bindPopup("\n                <img src='https://images.craigslist.org/01616_iylmo1bVEFf_300x300.jpg' height='auto' width='160px' />\n                <h3>Two piece microsuede sectional sofa</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284190998.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_6._popup.options.maxWidth = 300;
       map.addLayer(circle_6)
       
-      var circle_7 = L.circle([45.5115944, -73.6051013], 440, {
+      var circle_7 = L.circle([37.989940, -122.345123], 440, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_7.bindPopup("\n                <img src='http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' height='auto' width='160px' />\n                <h3>a few scraps of material</h3>\n                <h4>montreal, Somewhere</h4>\n                <a href='http://montreal.craigslist.ca/zip/5264890846.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_7.bindPopup("\n                <img src='https://images.craigslist.org/00i0i_4wnH7Takvhb_300x300.jpg' height='auto' width='160px' />\n                <h3>Two matching upholstered swivel chairs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284190437.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_7._popup.options.maxWidth = 300;
       map.addLayer(circle_7)
       
-      var circle_8 = L.circle([45.533741, -73.614178], 430, {
+      var circle_8 = L.circle([37.759305, -122.407940], 430, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_8.bindPopup("\n                <img src='https://images.craigslist.org/00s0s_asFiv1ILi9q_300x300.jpg' height='auto' width='160px' />\n                <h3>FREE: 2 vaccum cleaner bags</h3>\n                <h4>montreal, Somewhere</h4>\n                <a href='http://montreal.craigslist.ca/zip/5281834143.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_8.bindPopup("\n                <img src='https://images.craigslist.org/00f0f_ipBf1z5dkMB_300x300.jpg' height='auto' width='160px' />\n                <h3>Classic Burton Brushie Snowboard 153 + Boots</h3>\n                <h4>ission district, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/sfc/zip/5284190156.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_8._popup.options.maxWidth = 300;
       map.addLayer(circle_8)
       
-      var circle_9 = L.circle([45.493762, -73.667107], 420, {
+      var circle_9 = L.circle([2.9593798, -76.2654946], 420, {
                             color: '#000000',
                             fillColor: 'white',
                             fillOpacity: 0.2
                             });
-      circle_9.bindPopup("\n                <img src='https://images.craigslist.org/00w0w_45x3hqG8kNb_300x300.jpg' height='auto' width='160px' />\n                <h3>Free wood palettes</h3>\n                <h4>TMR, montreal</h4>\n                <a href='http://montreal.craigslist.ca/zip/5281760791.html' target='_blank'>View Posting in New Tab</a>\n               ");
+      circle_9.bindPopup("\n                <img src='https://images.craigslist.org/00j0j_ck3Zya5dOu6_300x300.jpg' height='auto' width='160px' />\n                <h3>couch and love seat</h3>\n                <h4>concord / pleasant hill / martinez, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284189983.html' target='_blank'>View Posting in New Tab</a>\n               ");
       circle_9._popup.options.maxWidth = 300;
       map.addLayer(circle_9)
       
@@ -202,6 +202,8 @@
       
 
       
+
+
 
    </script>
 
