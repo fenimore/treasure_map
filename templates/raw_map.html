@@ -1,210 +1,222 @@
-<!DOCTYPE html>
-<head>
-   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!DOCTYPE html>
+        <head>
+            
+        
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+        
+        
+        
+            
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+        
+        
+        
+            
+        
+            <link rel="stylesheet" href="https://raw.githubusercontent.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+        
+        
+        
+            
+            <style>
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                }
 
-   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+            #map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+            
+        
+            
+            <style> #map_cf702936e6d84633b395d51bacc4e416 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+        
+        
+        </head>
+        <body>
+            
+        
+            
+            <div class="folium-map" id="map_cf702936e6d84633b395d51bacc4e416" ></div>
+        
+        
+        
+        </body>
+        <script>
+            
+        
+            
 
-   <link rel="stylesheet" href="https://rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
-   <script src="https://rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+            var southWest = L.latLng(-90, -180);
+            var northEast = L.latLng(90, 180);
+            var bounds = L.latLngBounds(southWest, northEast);
 
+            var map_cf702936e6d84633b395d51bacc4e416 = L.map('map_cf702936e6d84633b395d51bacc4e416', {
+                                           center:[45.5088,-73.5878],
+                                           zoom: 12,
+                                           maxBounds: bounds,
+                                           layers: [],
+                                           crs: L.CRS.EPSG3857
+                                         });
+            
+        
+        
+            
+            var tile_layer_ea8ae037e3c4474b8b0c3076802ab7ee = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                ).addTo(map_cf702936e6d84633b395d51bacc4e416);
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+        
+        
+            
 
-   <link rel="stylesheet" href="https://birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+            var circle_marker_a863f23bd63c402db4bb9362baa633eb = L.circle(
+                [45.479013,-73.619285],
+                500,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_cf702936e6d84633b395d51bacc4e416);
+            
+        
+            
+            var popup_0f7ea3eaf29a43eeb9d652d1fd269bce = L.popup({maxWidth: '300'});
 
-   
-   
-   
-   
+            
+                var html_4e345b940fc446a8b52c3f736b66ff72 = $('         <div id="html_4e345b940fc446a8b52c3f736b66ff72"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00I0I_3nghZ17n3TJ_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Broken washing machine&lt;/h3&gt;                 &lt;h4&gt;Villa Maria station, montreal&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5509450332.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_0f7ea3eaf29a43eeb9d652d1fd269bce.setContent(html_4e345b940fc446a8b52c3f736b66ff72);
+            
 
-   <style>
+            circle_marker_a863f23bd63c402db4bb9362baa633eb.bindPopup(popup_0f7ea3eaf29a43eeb9d652d1fd269bce);
 
-      html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
+            
+        
+        
+            
 
-      #map {
-        position:absolute;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
-      }
+            var circle_marker_bc564b0646f64181b6f27dba683e275b = L.circle(
+                [52.4667895,0.9382158],
+                490,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_cf702936e6d84633b395d51bacc4e416);
+            
+        
+            
+            var popup_9134cfdaff0a4b9e8a8b0356d79a5fd4 = L.popup({maxWidth: '300'});
 
-   </style>
-</head>
+            
+                var html_017ee58e1d7e457c9c7d4eb92539de40 = $('         <div id="html_017ee58e1d7e457c9c7d4eb92539de40"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00n0n_hyDGOI8oYg6_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Curb alert: IKEA dresser&lt;/h3&gt;                 &lt;h4&gt;H2t2x2, montreal&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5509253318.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_9134cfdaff0a4b9e8a8b0356d79a5fd4.setContent(html_017ee58e1d7e457c9c7d4eb92539de40);
+            
 
-<body>
+            circle_marker_bc564b0646f64181b6f27dba683e275b.bindPopup(popup_9134cfdaff0a4b9e8a8b0356d79a5fd4);
 
-   <div class="folium-map" id="folium_33e552c984ee48ee92a35904a0f312c4" style="width: 100%; height: 100%"></div>
-
-   <script>
-
-      
-
-      var base_tile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          minZoom: 1,
-          attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-      });
-
-      var baseLayer = {
-        "Base Layer": base_tile
-      };
-
-      /*
-      addition of the wms layers
-      */
-
-      
-
-      /*
-      addition of the tile layers
-      */
-      
-
-      /*
-      list of layers to be added
-      */
-      var layer_list = {
-      
-      };
-
-      /*
-      Bounding box.
-      */
-      var southWest = L.latLng(-90, -180),
-          northEast = L.latLng(90, 180),
-          bounds = L.latLngBounds(southWest, northEast);
-
-      /*
-      Creates the map and adds the selected layers
-      */
-      var map = L.map('folium_33e552c984ee48ee92a35904a0f312c4', {
-                                       center:[37.773972, -122.431297],
-                                       zoom: 12,
-                                       maxBounds: bounds,
-                                       layers: [base_tile]
-                                     });
-
-      L.control.layers(baseLayer, layer_list).addTo(map);
-
-      //cluster group
-      var clusteredmarkers = L.markerClusterGroup();
-      //section for adding clustered markers
-      
-      //add the clustered markers to the group anyway
-      map.addLayer(clusteredmarkers);
-
-      
-
-      
-      var circle_1 = L.circle([2.9593798, -76.2654946], 500, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_1.bindPopup("\n                <img src='https://images.craigslist.org/00505_he0jz8xCpCG_300x300.jpg' height='auto' width='160px' />\n                <h3>Sofa Bed - no smoke, no pets environment</h3>\n                <h4>pittsburg / antioch, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5248172507.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_1._popup.options.maxWidth = 300;
-      map.addLayer(circle_1)
-      
-      var circle_2 = L.circle([2.9593798, -76.2654946], 490, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_2.bindPopup("\n                <img src='https://images.craigslist.org/00s0s_kt3eCaRQVfD_300x300.jpg' height='auto' width='160px' />\n                <h3>Couche for free</h3>\n                <h4>n jose north, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/sby/zip/5248424212.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_2._popup.options.maxWidth = 300;
-      map.addLayer(circle_2)
-      
-      var circle_3 = L.circle([37.657400, -122.423500], 480, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_3.bindPopup("\n                <img src='https://images.craigslist.org/00J0J_iOe4zPT6zN2_300x300.jpg' height='auto' width='160px' />\n                <h3>FREE - Home made longboard deck</h3>\n                <h4>outh san francisco, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/pen/zip/5284198431.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_3._popup.options.maxWidth = 300;
-      map.addLayer(circle_3)
-      
-      var circle_4 = L.circle([37.989060, -122.344780], 470, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_4.bindPopup("\n                <img src='https://images.craigslist.org/01313_fvFuWRrvSjj_300x300.jpg' height='auto' width='160px' />\n                <h3>Six wood frame dining chairs with upholstered seats and backs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284192499.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_4._popup.options.maxWidth = 300;
-      map.addLayer(circle_4)
-      
-      var circle_5 = L.circle([37.990278, -122.345295], 460, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_5.bindPopup("\n                <img src='https://images.craigslist.org/01414_4aTHQI5T6sk_300x300.jpg' height='auto' width='160px' />\n                <h3>Four bar-height swivel chairs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284191757.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_5._popup.options.maxWidth = 300;
-      map.addLayer(circle_5)
-      
-      var circle_6 = L.circle([37.988722, -122.343063], 450, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_6.bindPopup("\n                <img src='https://images.craigslist.org/01616_iylmo1bVEFf_300x300.jpg' height='auto' width='160px' />\n                <h3>Two piece microsuede sectional sofa</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284190998.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_6._popup.options.maxWidth = 300;
-      map.addLayer(circle_6)
-      
-      var circle_7 = L.circle([37.989940, -122.345123], 440, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_7.bindPopup("\n                <img src='https://images.craigslist.org/00i0i_4wnH7Takvhb_300x300.jpg' height='auto' width='160px' />\n                <h3>Two matching upholstered swivel chairs</h3>\n                <h4>hercules, pinole, san pablo, el sob, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284190437.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_7._popup.options.maxWidth = 300;
-      map.addLayer(circle_7)
-      
-      var circle_8 = L.circle([37.759305, -122.407940], 430, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_8.bindPopup("\n                <img src='https://images.craigslist.org/00f0f_ipBf1z5dkMB_300x300.jpg' height='auto' width='160px' />\n                <h3>Classic Burton Brushie Snowboard 153 + Boots</h3>\n                <h4>ission district, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/sfc/zip/5284190156.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_8._popup.options.maxWidth = 300;
-      map.addLayer(circle_8)
-      
-      var circle_9 = L.circle([2.9593798, -76.2654946], 420, {
-                            color: '#000000',
-                            fillColor: 'white',
-                            fillOpacity: 0.2
-                            });
-      circle_9.bindPopup("\n                <img src='https://images.craigslist.org/00j0j_ck3Zya5dOu6_300x300.jpg' height='auto' width='160px' />\n                <h3>couch and love seat</h3>\n                <h4>concord / pleasant hill / martinez, San Francisco, USA</h4>\n                <a href='http://sanfrancisco.craigslist.ca/eby/zip/5284189983.html' target='_blank'>View Posting in New Tab</a>\n               ");
-      circle_9._popup.options.maxWidth = 300;
-      map.addLayer(circle_9)
-      
-
-      
-
-      
-
-      
-
-      
-
-
-
-   </script>
-
-</body>
+            
+        
+        
+        
+        </script>
+        

@@ -105,7 +105,7 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
     center_lat = start_coord[0]
     center_lon = start_coord[1]
     ######### This is where I define the size of map
-    map_osm = folium.Map([center_lat, center_lon], zoom_start=12, width='100%', height='100%') # width=500,height=500
+    map_osm = folium.Map([center_lat, center_lon], zoom_start=12, tiles='Stamen Toner', width='100%', height='100%') # width=500,height=500 # tiles='Stamen Toner',
     # Look into Folium for real, so this is a Folium
     # Object filled with map markers
     radi = 500 # Having it start big and get small corrects overlaps
@@ -143,6 +143,6 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
         pop_up = address + str(add_lat) + str(add_lon)
         map_osm.simple_marker(location=[add_lat, add_lon],
           popup=address)
-    map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
-    #path = os.getcwd() # For testing!
-    #map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
+    #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
+    path = os.getcwd() # For testing!
+    map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
