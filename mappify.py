@@ -117,19 +117,23 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
         image = freestuff.image     # It Works! (images)
         color = sort_stuff(thing)   # Map marker's color
         # Name is Map Posting
-        name = """
+        html = """
                 <img src='%s' height='auto' width='160px' />
                 <h3>%s</h3>
                 <h4>%s</h4>
                 <a href='%s' target='_blank'>View Posting in New Tab</a>
                """ % (image, thing, place, url)
+        # doesn't friking work
+        iframe = folium.element.IFrame(html=html, width=200, height=300)
+        htmlframe = folium.element.Html(html, 200, 300 )
+        popup = folium.Popup(html, max_width=300)
         coordinates = get_coordinates(freestuff) # Get Coordinates Function is Above
         # TODO: Contigency Plan for 0, 0?
         lat = coordinates[0] # It returns an array 0 = Latitude
         lon = coordinates[1] # and 1 = Longitude
         # This is the Map business with many options
         map_osm.circle_marker(location=[lat, lon], radius=radi,
-          popup=name, line_color="#000000",
+          popup=html, line_color="#000000",
           fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
     if address != None:
