@@ -8,7 +8,7 @@ This is an implementation of <a href="https://github.com/polypmer/freestuff-bot"
 * beautifulsoup4
 * python 3.x
 * Flask & Jinja2
-* folium
+* folium 0.2.0
 * [see requirements.txt]
 
 ## Application Intereface
@@ -21,7 +21,6 @@ Something like this subject to change:
 
 ## TODO:
 * Make X's for mappify's Map creation (for pirate theme...)
-* Add form for user address
 * Add color scheme to legend
 * **Loading screen**!!! -- change
 * Give it some style, jeez
