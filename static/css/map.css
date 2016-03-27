@@ -1,3 +1,10 @@
 iframe {
   border: none;
 }
+
+
+.navbar-default {
+  background-color: #52adda;
+  border-color: #428aae;
+  background-image: none;
+}

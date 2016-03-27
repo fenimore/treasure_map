@@ -131,7 +131,9 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
         lat = coordinates[0] # It returns an array 0 = Latitude
         lon = coordinates[1] # and 1 = Longitude
         # This is the Map business with many options
-        folium.Marker([lat, lon], popup=p).add_to(map_osm)
+        #folium.Marker([lat, lon], popup=p).add_to(map_osm)
+        folium.CircleMarker([lat, lon], radius=radi, popup=p,
+            fill_color=color, fill_opacity=0.2).add_to(map_osm)
         #map_osm.circle_marker(location=[lat, lon], radius=radi,
         #  popup=popup, line_color="#000000",
         #  fill_color=color, fill_opacity=0.2)
