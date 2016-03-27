@@ -4,6 +4,8 @@
 {% block content %}
 
 <div id="map"> {% include 'raw_map.html' %}</div>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
 <style>
 body {
@@ -21,7 +23,7 @@ font-family: 'IM Fell English', serif;
       <div class="panel panel-success" style='width:100%'>
         <div class="panel-heading">
           <div class='panel-title text-center' style='padding:5px;'>
-            {{ location.title() }}
+            Treasures of {{ location.title() }}
             <button class='btn btn-primary btn-sm' id='show-l-btn'>Legend</button>
             <button class='btn btn-info btn-sm' id='show-r-btn'>Listing</button>
           </div>

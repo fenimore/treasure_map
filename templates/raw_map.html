@@ -19,7 +19,7 @@
         
             
         
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="/static/css/style.css" />
         
         
         
@@ -110,7 +110,7 @@
             
         
             
-            <style> #map_cf702936e6d84633b395d51bacc4e416 {
+            <style> #map_8a50c175c6c94ac6b5170ac1a2b18237 {
                 position : relative;
                 width : 100.0%;
                 height: 100.0%;
@@ -126,7 +126,7 @@
             
         
             
-            <div class="folium-map" id="map_cf702936e6d84633b395d51bacc4e416" ></div>
+            <div class="folium-map" id="map_8a50c175c6c94ac6b5170ac1a2b18237" ></div>
         
         
         
@@ -140,8 +140,8 @@
             var northEast = L.latLng(90, 180);
             var bounds = L.latLngBounds(southWest, northEast);
 
-            var map_cf702936e6d84633b395d51bacc4e416 = L.map('map_cf702936e6d84633b395d51bacc4e416', {
-                                           center:[45.5088,-73.5878],
+            var map_8a50c175c6c94ac6b5170ac1a2b18237 = L.map('map_8a50c175c6c94ac6b5170ac1a2b18237', {
+                                           center:[43.7,-79.4],
                                            zoom: 12,
                                            maxBounds: bounds,
                                            layers: [],
@@ -151,7 +151,7 @@
         
         
             
-            var tile_layer_ea8ae037e3c4474b8b0c3076802ab7ee = L.tileLayer(
+            var tile_layer_90bddecf89d24bf188feea909ff2a865 = L.tileLayer(
                 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
                 {
                     maxZoom: 18,
@@ -159,14 +159,14 @@
                     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
                     detectRetina: false
                     }
-                ).addTo(map_cf702936e6d84633b395d51bacc4e416);
+                ).addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
 
         
         
             
 
-            var circle_marker_a863f23bd63c402db4bb9362baa633eb = L.circle(
-                [45.479013,-73.619285],
+            var circle_marker_919dac71bbed44d395cb741f4dec05ca = L.circle(
+                [43.719965,-79.780618],
                 500,
                 {
                     color: '#000000',
@@ -174,26 +174,26 @@
                     fillOpacity: 0.2
                     }
                 )
-                .addTo(map_cf702936e6d84633b395d51bacc4e416);
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
             
         
             
-            var popup_0f7ea3eaf29a43eeb9d652d1fd269bce = L.popup({maxWidth: '300'});
+            var popup_9fa3e3203846440cb30ca1faaf068835 = L.popup({maxWidth: '300'});
 
             
-                var html_4e345b940fc446a8b52c3f736b66ff72 = $('         <div id="html_4e345b940fc446a8b52c3f736b66ff72"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00I0I_3nghZ17n3TJ_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Broken washing machine&lt;/h3&gt;                 &lt;h4&gt;Villa Maria station, montreal&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5509450332.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
-                popup_0f7ea3eaf29a43eeb9d652d1fd269bce.setContent(html_4e345b940fc446a8b52c3f736b66ff72);
+                var html_23b94fd2b6b946b78f9d82a5ea3bac4b = $('         <div id="html_23b94fd2b6b946b78f9d82a5ea3bac4b"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/01414_lz9FERCVrpL_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;FREE Retro 1970&#39;s TV cabinet&lt;/h3&gt;                 &lt;h4&gt;Bouvaird/Kennedy, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/bra/zip/5501169161.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_9fa3e3203846440cb30ca1faaf068835.setContent(html_23b94fd2b6b946b78f9d82a5ea3bac4b);
             
 
-            circle_marker_a863f23bd63c402db4bb9362baa633eb.bindPopup(popup_0f7ea3eaf29a43eeb9d652d1fd269bce);
+            circle_marker_919dac71bbed44d395cb741f4dec05ca.bindPopup(popup_9fa3e3203846440cb30ca1faaf068835);
 
             
         
         
             
 
-            var circle_marker_bc564b0646f64181b6f27dba683e275b = L.circle(
-                [52.4667895,0.9382158],
+            var circle_marker_1ab0fff4609f432eb2e17cb516311769 = L.circle(
+                [43.690343,-79.383302],
                 490,
                 {
                     color: '#000000',
@@ -201,18 +201,207 @@
                     fillOpacity: 0.2
                     }
                 )
-                .addTo(map_cf702936e6d84633b395d51bacc4e416);
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
             
         
             
-            var popup_9134cfdaff0a4b9e8a8b0356d79a5fd4 = L.popup({maxWidth: '300'});
+            var popup_5039d06222fe4ac1b6a60dd2010b43ef = L.popup({maxWidth: '300'});
 
             
-                var html_017ee58e1d7e457c9c7d4eb92539de40 = $('         <div id="html_017ee58e1d7e457c9c7d4eb92539de40"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00n0n_hyDGOI8oYg6_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Curb alert: IKEA dresser&lt;/h3&gt;                 &lt;h4&gt;H2t2x2, montreal&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5509253318.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
-                popup_9134cfdaff0a4b9e8a8b0356d79a5fd4.setContent(html_017ee58e1d7e457c9c7d4eb92539de40);
+                var html_a58629450f0547848b0a907436a7effa = $('         <div id="html_a58629450f0547848b0a907436a7effa"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00x0x_G6CHEfIiif_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Used desk, painted&lt;/h3&gt;                 &lt;h4&gt;Yonge+St. Clair, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/tor/zip/5510492736.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_5039d06222fe4ac1b6a60dd2010b43ef.setContent(html_a58629450f0547848b0a907436a7effa);
             
 
-            circle_marker_bc564b0646f64181b6f27dba683e275b.bindPopup(popup_9134cfdaff0a4b9e8a8b0356d79a5fd4);
+            circle_marker_1ab0fff4609f432eb2e17cb516311769.bindPopup(popup_5039d06222fe4ac1b6a60dd2010b43ef);
+
+            
+        
+        
+            
+
+            var circle_marker_361ea082d7bd480d9dff23456e5769f9 = L.circle(
+                [43.566950,-79.628856],
+                480,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_3d9c9d73d72042d2be842640661cd999 = L.popup({maxWidth: '300'});
+
+            
+                var html_cb2138ed20134c9ead55dba5015a7a12 = $('         <div id="html_cb2138ed20134c9ead55dba5015a7a12"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;FREE working air hockey table-CURB&lt;/h3&gt;                 &lt;h4&gt;TRIDENT AVE, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/mss/zip/5510457108.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_3d9c9d73d72042d2be842640661cd999.setContent(html_cb2138ed20134c9ead55dba5015a7a12);
+            
+
+            circle_marker_361ea082d7bd480d9dff23456e5769f9.bindPopup(popup_3d9c9d73d72042d2be842640661cd999);
+
+            
+        
+        
+            
+
+            var circle_marker_206caf03b0e549458b4b111464849c63 = L.circle(
+                [43.642775,-79.433014],
+                470,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_d2a894187d28457faf4b8660cd6c5495 = L.popup({maxWidth: '300'});
+
+            
+                var html_ae206c082fae4342afcc609aeed263e1 = $('         <div id="html_ae206c082fae4342afcc609aeed263e1"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00S0S_15oMqgkc46E_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Curb alert: Dresser 5-drawer&lt;/h3&gt;                 &lt;h4&gt;15 Maple Grove Ave, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/tor/zip/5510432838.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_d2a894187d28457faf4b8660cd6c5495.setContent(html_ae206c082fae4342afcc609aeed263e1);
+            
+
+            circle_marker_206caf03b0e549458b4b111464849c63.bindPopup(popup_d2a894187d28457faf4b8660cd6c5495);
+
+            
+        
+        
+            
+
+            var circle_marker_89e16bc6969b40c2880e689cdeed9ee2 = L.circle(
+                [43.665597,-79.428413],
+                460,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_d69ad31b36ee473b839e185d39a18224 = L.popup({maxWidth: '300'});
+
+            
+                var html_5ac343a9951d42028aea510728bc12d1 = $('         <div id="html_5ac343a9951d42028aea510728bc12d1"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Free Drywall&lt;/h3&gt;                 &lt;h4&gt;Bloor-Ossington, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/tor/zip/5510431683.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_d69ad31b36ee473b839e185d39a18224.setContent(html_5ac343a9951d42028aea510728bc12d1);
+            
+
+            circle_marker_89e16bc6969b40c2880e689cdeed9ee2.bindPopup(popup_d69ad31b36ee473b839e185d39a18224);
+
+            
+        
+        
+            
+
+            var circle_marker_637a98831d61464b8b1e608cf55ae2e8 = L.circle(
+                [43.6529206,-79.3849007],
+                450,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_ba1e447ba18645ce891ec698098e61de = L.popup({maxWidth: '300'});
+
+            
+                var html_0e55e137726b4971bbe10d570caf5ecb = $('         <div id="html_0e55e137726b4971bbe10d570caf5ecb"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00D0D_3zLtNeHAgDA_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Free total body elite home gym&lt;/h3&gt;                 &lt;h4&gt;78 Mill River Drive, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/yrk/zip/5510419043.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_ba1e447ba18645ce891ec698098e61de.setContent(html_0e55e137726b4971bbe10d570caf5ecb);
+            
+
+            circle_marker_637a98831d61464b8b1e608cf55ae2e8.bindPopup(popup_ba1e447ba18645ce891ec698098e61de);
+
+            
+        
+        
+            
+
+            var circle_marker_7f1e21adaf6e4bf5b0aaa312fa934c26 = L.circle(
+                [43.6529206,-79.3849007],
+                440,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_fd926f02294443059490d42ec8a4d6cd = L.popup({maxWidth: '300'});
+
+            
+                var html_731020418bca43dcaa874039f524ff01 = $('         <div id="html_731020418bca43dcaa874039f524ff01"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00D0D_2oXU2zMGZbB_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Free Mercedes Benz rubber car mats&lt;/h3&gt;                 &lt;h4&gt;78 Mill River Drive, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/yrk/zip/5510411515.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_fd926f02294443059490d42ec8a4d6cd.setContent(html_731020418bca43dcaa874039f524ff01);
+            
+
+            circle_marker_7f1e21adaf6e4bf5b0aaa312fa934c26.bindPopup(popup_fd926f02294443059490d42ec8a4d6cd);
+
+            
+        
+        
+            
+
+            var circle_marker_0fcdc0a0472344a382f4f6600368dcb6 = L.circle(
+                [43.765391,-79.411883],
+                430,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_a55175543c914457b183859e75dd53c9 = L.popup({maxWidth: '300'});
+
+            
+                var html_c1d146a78f664fd6b8f38fe9cb08de28 = $('         <div id="html_c1d146a78f664fd6b8f38fe9cb08de28"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00P0P_iT7XNJtiNLr_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Free Couch - Genuine Leather&lt;/h3&gt;                 &lt;h4&gt;Toronto, toronto&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/tor/zip/5510388761.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_a55175543c914457b183859e75dd53c9.setContent(html_c1d146a78f664fd6b8f38fe9cb08de28);
+            
+
+            circle_marker_0fcdc0a0472344a382f4f6600368dcb6.bindPopup(popup_a55175543c914457b183859e75dd53c9);
+
+            
+        
+        
+            
+
+            var circle_marker_8519b0b020304bf3a5fa1ebe31fe7992 = L.circle(
+                [43.660898,-79.519076],
+                420,
+                {
+                    color: '#000000',
+                    fillColor: 'white',
+                    fillOpacity: 0.2
+                    }
+                )
+                .addTo(map_8a50c175c6c94ac6b5170ac1a2b18237);
+            
+        
+            
+            var popup_b41f0b73026b4638af00bb8027b5ac05 = L.popup({maxWidth: '300'});
+
+            
+                var html_5cb2721ea74d4bef87200835444ee5fa = $('         <div id="html_5cb2721ea74d4bef87200835444ee5fa"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00y0y_2d7x4fKm7CU_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;collection of clip-art photo stock CDs&lt;/h3&gt;                 &lt;h4&gt;toronto, Somewhere&lt;/h4&gt;                 &lt;a href=&#39;http://toronto.craigslist.ca/tor/zip/5510319115.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
+                popup_b41f0b73026b4638af00bb8027b5ac05.setContent(html_5cb2721ea74d4bef87200835444ee5fa);
+            
+
+            circle_marker_8519b0b020304bf3a5fa1ebe31fe7992.bindPopup(popup_b41f0b73026b4638af00bb8027b5ac05);
 
             
         
