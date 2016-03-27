@@ -147,8 +147,8 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
             add_lat = 0
             add_lon = 0
         pop_up = address + str(add_lat) + str(add_lon)
-        map_osm.simple_marker(location=[add_lat, add_lon],
-          popup=address)
+        folium.Marker(location=[add_lat, add_lon],popup=address,
+            icon=folium.Icon(color='red',icon='home')).add_to(map_osm)
     folium_figure = map_osm.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
     folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
