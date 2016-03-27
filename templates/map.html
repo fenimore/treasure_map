@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<div id="map"> {% include 'raw_map.html' %}</div>
+
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
@@ -93,4 +93,6 @@ function loading(){
   $("#content").hide();
 }
 </script>
+
+<div id="map"> {% include 'raw_map.html' %}</div>
 {% endblock %}

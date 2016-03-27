@@ -119,16 +119,13 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
         color = sort_stuff(thing)   # Map marker's color
         # Name is Map Posting
         name = """
-                <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'> 
+                <link rel='stylesheet' type='text/css' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
                 <img src='%s' height='auto' width='160px' />
                 <h3>%s</h3>
                 <h4>%s</h4>
                 <a href='%s' target='_blank'>View Posting in New Tab</a>
                """ % (image, thing, place, url)
-        # doesn't friking work
-        iframe = IFrame(html=name, width=200, height=300)
-        popup = folium.Popup(iframe)
-        p = folium.Popup(IFrame(name, width=200, height=200))
+        p = folium.Popup(IFrame(name, width=200, height=300), max_width=3000)
         coordinates = get_coordinates(freestuff) # Get Coordinates Function is Above
         # TODO: Contigency Plan for 0, 0?
         lat = coordinates[0] # It returns an array 0 = Latitude
@@ -152,6 +149,7 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
           popup=address)
     folium_figure = map_osm.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
+    folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
     #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
     path = os.getcwd() # For testing!
     map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
