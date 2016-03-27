@@ -22,12 +22,11 @@ Something like this subject to change:
 ## TODO:
 * Make X's for mappify's Map creation (for pirate theme...)
 * Add color scheme to legend
+* A switch for tilesets
 * **Loading screen**!!! -- change
-* Give it some style, jeez
 * Some sort of absolute URL flaskish thing needs to happen
 
 ### Issues:
-* Loader gif doesn't work?
 * Location problem:
     - Certain cities are two words
         - newyork, sanfrac
