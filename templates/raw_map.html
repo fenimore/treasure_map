@@ -110,7 +110,7 @@
             
         
             
-            <style> #map_7005cb76d0834ab5bcc8c742420e7e4e {
+            <style> #map_9bfbe27335b84b3cb534b7227b19003e {
                 position : relative;
                 width : 100.0%;
                 height: 100.0%;
@@ -126,7 +126,7 @@
             
         
             
-            <div class="folium-map" id="map_7005cb76d0834ab5bcc8c742420e7e4e" ></div>
+            <div class="folium-map" id="map_9bfbe27335b84b3cb534b7227b19003e" ></div>
         
         
         
@@ -140,7 +140,7 @@
             var northEast = L.latLng(90, 180);
             var bounds = L.latLngBounds(southWest, northEast);
 
-            var map_7005cb76d0834ab5bcc8c742420e7e4e = L.map('map_7005cb76d0834ab5bcc8c742420e7e4e', {
+            var map_9bfbe27335b84b3cb534b7227b19003e = L.map('map_9bfbe27335b84b3cb534b7227b19003e', {
                                            center:[45.5088,-73.5878],
                                            zoom: 12,
                                            maxBounds: bounds,
@@ -151,7 +151,7 @@
         
         
             
-            var tile_layer_4859b53618c245ecbea87559f2f9ef7d = L.tileLayer(
+            var tile_layer_9158ecbe360541e295f57a23d01eea3c = L.tileLayer(
                 'https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
                 {
                     maxZoom: 18,
@@ -159,60 +159,54 @@
                     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
                     detectRetina: false
                     }
-                ).addTo(map_7005cb76d0834ab5bcc8c742420e7e4e);
+                ).addTo(map_9bfbe27335b84b3cb534b7227b19003e);
 
         
         
             
 
-            var circle_marker_edc57e4ede854975803a9f88550bfd6d = L.circle(
+            var marker_fb8bd8dd20cb4752934e86c4dd84d204 = L.marker(
                 [45.5087928,-73.5539819],
-                500,
                 {
-                    color: '#000000',
-                    fillColor: 'white',
-                    fillOpacity: 0.2
+                    icon: new L.Icon.Default()
                     }
                 )
-                .addTo(map_7005cb76d0834ab5bcc8c742420e7e4e);
+                .addTo(map_9bfbe27335b84b3cb534b7227b19003e);
             
         
             
-            var popup_ba43e4f7898443e39ccbb8ef684530c4 = L.popup({maxWidth: '300'});
+            var popup_ca1690f87b3b4f5d9890a29bdbba6ef4 = L.popup({maxWidth: '300'});
 
             
-                var html_1fe085fa2c2d4eaa886911ac2dc90711 = $('         <div id="html_1fe085fa2c2d4eaa886911ac2dc90711"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;https://images.craigslist.org/00s0s_8hVQUHmSeXK_300x300.jpg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Bunch of stuff&lt;/h3&gt;                 &lt;h4&gt;Montre, montreal&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5510451483.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
-                popup_ba43e4f7898443e39ccbb8ef684530c4.setContent(html_1fe085fa2c2d4eaa886911ac2dc90711);
+                var i_frame_c7d71ad32b2148c69231039f37f66003 = $('<iframe src="data:text/html;base64,CiAgICAgICAgCiAgICAgICAgICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIGhyZWY9Ii9zdGF0aWMvY3NzL3N0eWxlLmNzcyI+IAogICAgICAgICAgICAgICAgPGltZyBzcmM9J2h0dHBzOi8vaW1hZ2VzLmNyYWlnc2xpc3Qub3JnLzAwczBzXzhoVlFVSG1TZVhLXzMwMHgzMDAuanBnJyBoZWlnaHQ9J2F1dG8nIHdpZHRoPScxNjBweCcgLz4KICAgICAgICAgICAgICAgIDxoMz5CdW5jaCBvZiBzdHVmZjwvaDM+CiAgICAgICAgICAgICAgICA8aDQ+TW9udHJlLCBtb250cmVhbDwvaDQ+CiAgICAgICAgICAgICAgICA8YSBocmVmPSdodHRwOi8vbW9udHJlYWwuY3JhaWdzbGlzdC5jYS96aXAvNTUxMDQ1MTQ4My5odG1sJyB0YXJnZXQ9J19ibGFuayc+VmlldyBQb3N0aW5nIGluIE5ldyBUYWI8L2E+CiAgICAgICAgICAgICAgIAogICAgICAgIAogICAgICAgIA==" width="200" height="200"></iframe>')[0];
+                popup_ca1690f87b3b4f5d9890a29bdbba6ef4.setContent(i_frame_c7d71ad32b2148c69231039f37f66003);
             
 
-            circle_marker_edc57e4ede854975803a9f88550bfd6d.bindPopup(popup_ba43e4f7898443e39ccbb8ef684530c4);
+            marker_fb8bd8dd20cb4752934e86c4dd84d204.bindPopup(popup_ca1690f87b3b4f5d9890a29bdbba6ef4);
 
             
         
         
             
 
-            var circle_marker_125b12384a194e12946d5cb9b4cd0ab9 = L.circle(
+            var marker_4d24004bc1f0486e8302cbbf647f6284 = L.marker(
                 [45.516026,-73.595591],
-                490,
                 {
-                    color: '#000000',
-                    fillColor: 'white',
-                    fillOpacity: 0.2
+                    icon: new L.Icon.Default()
                     }
                 )
-                .addTo(map_7005cb76d0834ab5bcc8c742420e7e4e);
+                .addTo(map_9bfbe27335b84b3cb534b7227b19003e);
             
         
             
-            var popup_ebe1f99772bc4528b7785ab187c432c9 = L.popup({maxWidth: '300'});
+            var popup_352e86bff8034a1fb587b3dd5b034dd5 = L.popup({maxWidth: '300'});
 
             
-                var html_348c68098cd74ead8475aa8f46419d71 = $('         <div id="html_348c68098cd74ead8475aa8f46419d71"                 style="width: 100.0%; height: 100.0%;">                                  &lt;img src=&#39;http://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg&#39; height=&#39;auto&#39; width=&#39;160px&#39; /&gt;                 &lt;h3&gt;Free Mattress - Twin Bed&lt;/h3&gt;                 &lt;h4&gt;montreal, Somewhere&lt;/h4&gt;                 &lt;a href=&#39;http://montreal.craigslist.ca/zip/5510127553.html&#39; target=&#39;_blank&#39;&gt;View Posting in New Tab&lt;/a&gt;                </div>                 ')[0];
-                popup_ebe1f99772bc4528b7785ab187c432c9.setContent(html_348c68098cd74ead8475aa8f46419d71);
+                var i_frame_53abd5c4a4234b97b467cdf158dec167 = $('<iframe src="data:text/html;base64,CiAgICAgICAgCiAgICAgICAgICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgdHlwZT0idGV4dC9jc3MiIGhyZWY9Ii9zdGF0aWMvY3NzL3N0eWxlLmNzcyI+IAogICAgICAgICAgICAgICAgPGltZyBzcmM9J2h0dHA6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy9hL2FjL05vX2ltYWdlX2F2YWlsYWJsZS5zdmcnIGhlaWdodD0nYXV0bycgd2lkdGg9JzE2MHB4JyAvPgogICAgICAgICAgICAgICAgPGgzPkZyZWUgTWF0dHJlc3MgLSBUd2luIEJlZDwvaDM+CiAgICAgICAgICAgICAgICA8aDQ+bW9udHJlYWwsIFNvbWV3aGVyZTwvaDQ+CiAgICAgICAgICAgICAgICA8YSBocmVmPSdodHRwOi8vbW9udHJlYWwuY3JhaWdzbGlzdC5jYS96aXAvNTUxMDEyNzU1My5odG1sJyB0YXJnZXQ9J19ibGFuayc+VmlldyBQb3N0aW5nIGluIE5ldyBUYWI8L2E+CiAgICAgICAgICAgICAgIAogICAgICAgIAogICAgICAgIA==" width="200" height="200"></iframe>')[0];
+                popup_352e86bff8034a1fb587b3dd5b034dd5.setContent(i_frame_53abd5c4a4234b97b467cdf158dec167);
             
 
-            circle_marker_125b12384a194e12946d5cb9b4cd0ab9.bindPopup(popup_ebe1f99772bc4528b7785ab187c432c9);
+            marker_4d24004bc1f0486e8302cbbf647f6284.bindPopup(popup_352e86bff8034a1fb587b3dd5b034dd5);
 
             
         
