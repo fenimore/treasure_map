@@ -68,9 +68,19 @@ h1, h2, h3, h4 {
         <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav nav-tabs navbar-nav">
-                <li><a href="/#about"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> City Map <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> About <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/#about" >Preamble</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/#api" >API</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="/#disclaimer">Disclaimer</a></li>
+
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> City Map <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li role="presentation" class="dropdown-header">Canada</li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="/montreal/map" onclick='loading();'>Montréal</a></li>
