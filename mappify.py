@@ -91,6 +91,7 @@ def sort_stuff(stuff): # This doesn't work...
         color = "#000000" #black
     else:
         color = "white" #white
+    color = "#ffff00"
     return color
 
 """
@@ -152,6 +153,6 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
     folium_figure = map_osm.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
     folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
-    #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
-    path = os.getcwd() # For testing!
-    map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
+    map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
+    #path = os.getcwd() # For testing!
+    #map_osm.create_map(path= path + '/templates/raw_map.html') # For testing

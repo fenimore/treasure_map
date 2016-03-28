@@ -78,3 +78,8 @@
 #navbar .btn input  {
   border-radius: 0;
 }
+
+.dropdown-welcome a:active{
+  color: ffff00;
+  text-decoration: none;
+}
