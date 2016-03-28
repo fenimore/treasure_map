@@ -4,7 +4,6 @@
 
 
 <div id="map"> {% include 'raw_map.html' %}</div>
-
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 <link href='https://fonts.googleapis.com/css?family=IM+Fell+English' rel='stylesheet' type='text/css'>
 <style>
@@ -44,9 +43,12 @@ font-family: 'IM Fell English', serif;
           <small>API</small><br>
           <ul>
             <li>treasure.plyp.org/"location"/map | Default 10 items.</li>
-            <li>treasure.plyp.org/"location"/map/x | The geocoder may crash around 20 items.</li>
+            <li>treasure.plyp.org/"location"/map/x | Look at x items.</li>
           </ul>
-          <a class="btn btn-success btn-sm center-block" href="map/15" onclick="loading()">Load 15 Items</a>
+          <a class="btn btn-success btn-sm center-block" href="map/20" onclick="loading()">Load 20 Items</a>
+          {% if score is defined %}
+          Loaded in {{ score }} seconds.
+          {% endif %}
         </div>
         <div id='recent' style='display:none' class='panel-body'>
           <div id='recent-display'>

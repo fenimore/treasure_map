@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, send_from_directory, request
 import stuff, mappify
+from datetime import datetime
+
 
 # initialization
 app = Flask(__name__)
@@ -68,6 +70,7 @@ def show_map(location):
 
 @app.route('/<location>/map/<quantity>')
 def show_map_more(location, quantity):
+    startTime = datetime.now() # time speed of script
     stuffs = stuff.gather_stuff(location, quantity)
     mappify.post_map(stuffs)
     #ten = 9
@@ -83,7 +86,8 @@ def show_map_more(location, quantity):
             }
         things.append(thing)
     location = refine_city_name(location)
-    return render_template('map.html', location=location, things=things)
+    score = datetime.now() - startTime # efficacy?
+    return render_template('map.html', location=location, things=things, score=score)
 
 @app.route('/me', methods=['POST'])
 def me():
