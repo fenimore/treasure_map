@@ -17,7 +17,7 @@
               related to its value.</p>
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle dropdown-welcome" data-toggle="dropdown"
-                  role="button" aria-haspopup="true" aria-expanded="false">
+                  role="button" aria-haspopup="true" aria-expanded="false" style="color:gold">
                   <span class="glyphicon glyphicon-globe" aria-hidden="true">
                   </span> Try Your City <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -52,7 +52,7 @@
           <h2>About</h2>
           <hr>
              <p>
-              The main use of this application is to compare craigslist
+              With the treasure map, compare craigslist
          free stuff postings by <b>location</b>. The distance of a free thing is directly
         related to its value. There are many treasures to be found, using this application, hopefully,
         you will find something near you worth giving a new home.
@@ -62,49 +62,42 @@
                (likely those with one word names).
                Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.
                <br>
-               To try a city not listed on the navigation menu, simply enter the city name after the url (treasure.plyp.org).</p>
-
-              <p>Click <a href="https://github.com/polypmer/treasure-map">
-                here</a> for the website source code or <a href="https://github.com/polypmer/freestuff-bot">here</a>
-                for the freestuff-bot script. <br>This treasure map is written in Python 3 using the Flask framework.
-                <br>
-              Email Fenimore, the author, here:<br>
-              fenimore.love(at)workingagenda.com</p>
-              <div class="panel panel-warning">
-                <div class="panel-body">
-                  The program which calculates the coordinates for stuff-locations will sometimes crash. If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"), try refreshing the page.
-                </div>
-              </div>
-              <a id="api"></a>
-              <div class="row">
-                <h3 class="section-heading">Application Interface</h3>
-
-                <div class="col-md-6">
-                  <p>Type your location into the url:<br><br>
-                    <div class="panel panel-info">
-                      <div class="panel-body">
-                        treasure.plyp.org/location<br>
-                        treasure.plyp.org/location/map<br>
-                        treasure.plyp.org/location/map/x<br>
+               To try a city not listed on the navigation menu, simply enter the city name after the url (treasure.plyp.org).</p><br><a id="api"></a><hr>
+            <h3>Application Interface</h3>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p>Type your location into the url:<br><br>
+                      <div class="panel panel-info">
+                        <div class="panel-body">
+                          treasure.plyp.org/location<br>
+                          treasure.plyp.org/location/map<br>
+                          treasure.plyp.org/location/map/x<br>
+                        </div>
                       </div>
-                    </div>
+                      <hr>
+                      The default map loads 10 items.<br><br>
+                      These <i>stuffs</i> are marked by circles. The newer the posting,
+                      the bigger the circle.<br><br>
+                      The darker the border, the greater the overlap.
+                    </p>
+                  </div>
+                  <div class="col-md-6 ">
+                    <img src="static/img/screenshot.png" style="width:300px;height:auto" class='img-responsive img-circle center-block'>
                     <hr>
-                    The default map loads 10 items.<br><br>
-                    The stuffs are marked by circles. The newer the posting,
-                    the bigger the circle.
-                  </p>
+                    Plotting a <small>BUNCH</small> of stuff (free stuffs) is doable, but the map
+                      will take many seconds to load. Above, 65 items loaded in 25 seconds.
+                    </map>
+                  </div>
+                </div><br><br>
+                <div class="panel panel-warning">
+                  <div class="panel-body">
+                    The program which calculates the coordinates for stuff-locations will sometimes crash.
+                     If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"),
+                     try refreshing the page.
+                  </div>
                 </div>
-                <div class="col-md-6 ">
-                  <img src="static/img/screenshot.png" style="width:300px;height:auto" class='img-responsive img-circle center-block'>
-                  <hr>
-                  Plotting a <small>bunch</small> of stuff (free stuffs) is doable, but the map
-                    will take many seconds to load. Above, 65 items loaded in 25 seconds.
-                  </map>
-                </div>
-              </div>
-
-
                 <a id="disclaimer"></a>
+                <hr>
                 <h3>Disclaimer</h3>
                 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
           IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -114,6 +107,13 @@
           OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
           THE SOFTWARE.
                   </p><small>BEWARE OF EXCESSIVE ACCUMULATION.</small>
+                  <h4>Contact</h4>
+                  <p>Email Fenimore,<br>
+                  fenimore.love(at)workingagenda.com</p>
+                  <p>Source code is  <a href="https://github.com/polypmer/treasure-map">
+                    here</a>.<br>
+                    <br>
+                  </p>
 
   </div>
 </div>
