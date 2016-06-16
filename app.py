@@ -82,15 +82,12 @@ def list_stuff(location):
 def show_map(location):
     """Display 10 items in given city, default"""
     stuffs = StuffScraper(location, 9, precise=True).stuffs
-    #stuffs = stuff.gather_stuff(location, 9)
     treasure_map = StuffCharter(stuffs, zoom=12)
     folium_figure = treasure_map.treasure_map.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
     folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
     map_path = os.path.join(app.root_path, 'templates', 'raw_map.html')
-    #css_override = os.path.join(app.root_path, 'static', 'css', 'style.css')
     treasure_map.save_map(map_path=map_path)
-    #mappify.post_map(stuffs)
     things =[]
     for x in range(9): # Display listings on map
         thing = {
@@ -105,12 +102,15 @@ def show_map(location):
 
 @app.route('/<location>/map/<quantity>')
 def show_map_more(location, quantity):
+    """Display a specified amount of stuffs on map"""
     startTime = datetime.now() # time speed of script
-    stuffs = stuff.gather_stuff(location, quantity)
-    mappify.post_map(stuffs)
-    #ten = 9
-    #if int(quantity) < ten:
-    #    ten = int(quantity) - 1
+    stuffs = StuffScraper(location, quantity, precise=True).stuffs
+    treasure_map = StuffCharter(stuffs, zoom=12)
+    folium_figure = treasure_map.treasure_map.get_root()
+    folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
+    folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
+    map_path = os.path.join(app.root_path, 'templates', 'raw_map.html')
+    treasure_map.save_map(map_path=map_path)
     things =[]
     for x in range(int(quantity)):
         thing = {
@@ -130,8 +130,13 @@ def me():
             location = request.form['location']
             address = request.form['address']
             #address = address + ', ' + location # this messes up if the city isn't the same as the address
-            stuffs = stuff.gather_stuff(location, 9)
-            mappify.post_map(stuffs, address)
+            stuffs = StuffScraper(location, 9, precise=True).stuffs
+            treasure_map = StuffCharter(stuffs, address=address, zoom=12)
+            folium_figure = treasure_map.treasure_map.get_root()
+            folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
+            folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
+            map_path = os.path.join(app.root_path, 'templates', 'raw_map.html')
+            treasure_map.save_map(map_path=map_path)
             things =[]
             for x in range(9):
                 thing = {
