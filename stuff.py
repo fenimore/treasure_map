@@ -18,14 +18,14 @@
     This module houses the ever important Class Definition
     and the gather_stuff method which calls stuffify
     and returns a list of stuffs
-    
+
     Example use, using ipython:
-    
+
     import stuff
     import mappify
-    
+
     stuffs = stuff.gather_stuff("montreal")
-    mappify.post_map(stuffs)
+    mappify.post_map(stuffs, address)
 """
 
 import requests, re, folium, webbrowser
@@ -42,14 +42,15 @@ class Stuff(object):
     location = ""
     image = ""
     user_location = ""
-		
-    #constructor the de-structor!!  
+
+    #constructor the de-structor!!
     def __init__(self, thing, url, location, image, user_location):
         self.thing = thing
         self.url = 'http://' + user_location + '.craigslist.ca' + url
         self.location = location
         self.image = image
         self.user_location = user_location
+        #add coordinates
 
     #the stringifing printer.... Python is so pretty
     def __str__(self):
@@ -74,5 +75,3 @@ def test_montreal(): # for quick testing with ipython
 def test_newyork(): # for quick testing with ipython
     stuffs = gather_stuff("newyork")
     mappify.post_map(stuffs)
-
-

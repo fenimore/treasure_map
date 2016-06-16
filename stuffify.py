@@ -26,7 +26,8 @@ def setup_place():
         user_place = input("What major city are you near? ")
     return user_place
 
-# Setup up the Soup
+""" Setup up the Soup """ 
+# This has to Change for Europe, it's all jumbled there.
 def setup_page(user_place):
     free_url = 'http://' + user_place +'.craigslist.com/search/zip'
     try:
@@ -36,7 +37,7 @@ def setup_page(user_place):
         soup = "something when wrong" # Something informative
     return soup
 
-# Setup the Images
+""" Setup the Images """
 def get_images(soup):
     free_images = []
     for row in soup.find_all("a", class_="i"):
@@ -81,9 +82,8 @@ def get_locations(user_place, soup):
             _loc = location +", Somewhere"
         else:
             _loc = loc_node.strip('<small ()</small>')
-            _loc = unidecode(_loc)# unicodedata.normalize('NFKD', _loc).encode('ascii', 'ignore')
+            _loc = unidecode(_loc)# Unicode!
             _loc = _loc + ", " + location
-        #print(_loc)#
         free_locations.append(_loc)
     return free_locations
 

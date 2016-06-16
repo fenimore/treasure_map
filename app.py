@@ -11,6 +11,7 @@ app.config.update(
 )
 
 def refine_city_name(location):
+    """display User-friendly city name"""
     if location == 'newyork': # does this have to capitalized
         loc = 'New York'
     elif location == 'washingtondc':
@@ -21,21 +22,25 @@ def refine_city_name(location):
         loc = location
     return loc
 
-# controllers
+"""Routes"""
 @app.route('/favicon.ico')
 def favicon():
+    """Serve favicon"""
     return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """Render 404."""
     return render_template('404.html'), 404
 
 @app.route("/")
 def index():
+    """Render index."""
     return render_template('index.html')
 
 @app.route('/<location>')
 def welcome(location):
+    """Display listings"""
     stuffs = stuff.gather_stuff(location, 9)
     # Somehow iterate the dict construction? Yeah.. that.
     things =[]

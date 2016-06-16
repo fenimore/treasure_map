@@ -108,8 +108,10 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
     center_lon = start_coord[1]
     ######### This is where I define the size of map
     map_osm = folium.Map([center_lat, center_lon], zoom_start=12,
-        tiles='Stamen Terrain', width='100%', height='100%') # width=500,height=500 # tiles='Stamen Toner',
+     width='100%', height='100%')
+    # width=500,height=500 # tiles='Stamen Toner',
     # Stamen Terrain, Stamen Toner, Mapbox Bright, and Mapbox Control
+    # https://maps.wikimedia.org/#5/49.454/8.130 # tile links must have attr attr='Wikimedia Maps'
     radi = 500 # Having it start big and get small corrects overlaps
     for freestuff in freestuffs:
         # Loop through the Stuff and Post it
@@ -126,19 +128,16 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
                 <h4>%s</h4>
                 <a href='%s' target='_blank'>View Posting in New Tab</a>
                """ % (image, thing, place, url)
-        p = folium.Popup(IFrame(name, width=200, height=300), max_width=3000)
         coordinates = get_coordinates(freestuff) # Get Coordinates Function is Above
         # TODO: Contigency Plan for 0, 0?
         lat = coordinates[0] # It returns an array 0 = Latitude
         lon = coordinates[1] # and 1 = Longitude
         # This is the Map business with many options
-        #folium.Marker([lat, lon], popup=p).add_to(map_osm)
-        folium.CircleMarker([lat, lon], radius=radi, popup=p,
+        popup = folium.Popup(IFrame(name, width=200, height=300), max_width=3000)
+        folium.CircleMarker([lat, lon], radius=radi, popup=popup,
             fill_color=color, fill_opacity=0.2).add_to(map_osm)
-        #map_osm.circle_marker(location=[lat, lon], radius=radi,
-        #  popup=popup, line_color="#000000",
-        #  fill_color=color, fill_opacity=0.2)
         radi -= 10 # decrease the radius to be sure not to cover up newer postings
+    """Add Address Marker if Address val passed into mappify"""
     if address != None:
         geolocator = Nominatim()
         try:
@@ -150,9 +149,10 @@ def post_map(freestuffs, address=None): # Pass in freestuffs list
         pop_up = address + str(add_lat) + str(add_lon)
         folium.Marker(location=[add_lat, add_lon],popup=address,
             icon=folium.Icon(color='red',icon='home')).add_to(map_osm)
+    # So that Leaflet Style Doesn't conflict with custom Bootstrap
     folium_figure = map_osm.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
     folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
-    map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
-    #path = os.getcwd() # For testing!
-    #map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
+    #map_osm.create_map(path='treasuremap/templates/raw_map.html') # This works on dreamhost
+    path = os.getcwd() # For testing!
+    map_osm.create_map(path= path + '/templates/raw_map.html') # For testing
