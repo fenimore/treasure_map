@@ -25,6 +25,7 @@ from flask import Flask, render_template, send_from_directory, request
 import stuff, mappify
 from freestuffs.stuff_scraper import StuffScraper
 from freestuffs.stuff_charter import StuffCharter
+from city_list import CITIES
 
 # initialization
 app = Flask(__name__)
@@ -59,6 +60,13 @@ def page_not_found(e):
 def index():
     """Render index."""
     return render_template('index.html')
+
+
+@app.route("/cities")
+def list_cities():
+    """Display valid city names."""
+    return str(CITIES)
+
 
 @app.route('/<location>')
 def list_stuff(location):
