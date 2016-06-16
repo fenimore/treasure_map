@@ -14,6 +14,7 @@ iframe {
 .navbar-default {
   background-color: #52adda;
   border-color: #428aae;
+  background-image: none;
 }
 .navbar-default .navbar-brand {
   color: #ffffff;

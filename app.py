@@ -19,6 +19,7 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 import os
 from datetime import datetime
 
+import folium
 from flask import Flask, render_template, send_from_directory, request
 
 import stuff, mappify
@@ -82,10 +83,14 @@ def show_map(location):
     """Display 10 items in given city, default"""
     stuffs = StuffScraper(location, 9, precise=True).stuffs
     #stuffs = stuff.gather_stuff(location, 9)
-    mappify.post_map(stuffs)
-    
-    css_override = os.path.join(app.root_path, 'static', 'css', 'style.css')
-    
+    treasure_map = StuffCharter(stuffs, zoom=12)
+    folium_figure = treasure_map.treasure_map.get_root()
+    folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
+    folium_figure.header._children['Woops'] = folium.element.CssLink('/static/css/map.css')
+    map_path = os.path.join(app.root_path, 'templates', 'raw_map.html')
+    #css_override = os.path.join(app.root_path, 'static', 'css', 'style.css')
+    treasure_map.save_map(map_path=map_path)
+    #mappify.post_map(stuffs)
     things =[]
     for x in range(9): # Display listings on map
         thing = {
