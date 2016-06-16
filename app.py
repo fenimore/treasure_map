@@ -17,10 +17,13 @@ OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 import os
-from flask import Flask, render_template, send_from_directory, request
-import stuff, mappify
 from datetime import datetime
 
+from flask import Flask, render_template, send_from_directory, request
+
+import stuff, mappify
+from freestuffs.stuff_scraper import StuffScraper
+from freestuffs.stuff_charter import StuffCharter
 
 # initialization
 app = Flask(__name__)
@@ -57,10 +60,9 @@ def index():
     return render_template('index.html')
 
 @app.route('/<location>')
-def welcome(location):
+def list_stuff(location):
     """Display listings"""
-    stuffs = stuff.gather_stuff(location, 9)
-    # Somehow iterate the dict construction? Yeah.. that.
+    stuffs = StuffScraper(location, 9).stuffs
     things =[]
     for x in range(9):
         thing = {
@@ -70,14 +72,16 @@ def welcome(location):
             'title': stuffs[x].thing
             }
         things.append(thing)
-    ### Not quite worked out yet ^^^
-    rlocation = refine_city_name(location) # Load button breaks if I dont' distinguish
-    return render_template('view.html', things=things, location=location, rlocation=rlocation)  # render a template
+    refined_loc = refine_city_name(location)
+    return render_template('view.html', things=things, location=location, rlocation=refined_loc)
     # location = location... brilliant
+
 
 @app.route('/<location>/map')
 def show_map(location):
-    stuffs = stuff.gather_stuff(location, 9)
+    """Display 10 items in given city, default"""
+    stuffs = StuffScraper(location, 9, precise=True).stuffs
+    #stuffs = stuff.gather_stuff(location, 9)
     mappify.post_map(stuffs)
     
     css_override = os.path.join(app.root_path, 'static', 'css', 'style.css')
