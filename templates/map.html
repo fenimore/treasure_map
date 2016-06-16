@@ -34,16 +34,23 @@ font-family: 'IM Fell English', serif;
             <li>The <b>smaller</b> the posting, the older it is. </li>
             <li>The <b>darker</b> the border, the higher the amount of overlap.</li>
           </ul>
+          <small>Triage</small><br>
+          <ul>
+            <li><b>Red</b>: Furniture.</li>
+            <li><b>Blue</b>: Electronics.</li>
+            <li><b>Black</b>: Other.</li>
+            <li><b>White</b>: The rest.</li>
+          </ul>
          <small>Trouble Shooting</small><br>
           <ul>
             <li>If the script can't find the location, it places it in the <b>city-center</b>.
-</li>
+                </li>
             <li>If empty, try <b>zooming out.</b></li>
           </ul>
           <small>API</small><br>
           <ul>
-            <li>treasure.plyp.org/"location"/map | Default 10 items.</li>
-            <li>treasure.plyp.org/"location"/map/x | Look at x items.</li>
+            <li style="font-family:monospace;">/"location"/map | Default 10 items.</li>
+            <li style="font-family:monospace">/"location"/map/x | Look at x items.</li>
           </ul>
           <a class="btn btn-success btn-sm center-block" href="map/20" onclick="loading()">Load 20 Items</a>
           {% if score is defined %}

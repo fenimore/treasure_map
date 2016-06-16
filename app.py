@@ -22,7 +22,6 @@ from datetime import datetime
 import folium
 from flask import Flask, render_template, send_from_directory, request
 
-import stuff, mappify
 from freestuffs.stuff_scraper import StuffScraper
 from freestuffs.stuff_charter import StuffCharter
 from city_list import CITIES
@@ -65,7 +64,14 @@ def index():
 @app.route("/cities")
 def list_cities():
     """Display valid city names."""
-    return str(CITIES)
+    cities_list = '<table>'
+    cities_list +='<tr><th>User-Friendly Name</th><th>Valid for Url</th></tr>'
+    for key, value in CITIES.items() :
+        cities_list +='<tr>'
+        cities_list += ('<td>' + str(key) + '</td><td>' + str(value) + '</td>')
+        cities_list +='</tr>'
+    cities_list += '</table>'
+    return cities_list
 
 
 @app.route('/<location>')
