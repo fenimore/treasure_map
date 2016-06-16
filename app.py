@@ -79,8 +79,11 @@ def welcome(location):
 def show_map(location):
     stuffs = stuff.gather_stuff(location, 9)
     mappify.post_map(stuffs)
+    
+    css_override = os.path.join(app.root_path, 'static', 'css', 'style.css')
+    
     things =[]
-    for x in range(9):
+    for x in range(9): # Display listings on map
         thing = {
             'url': stuffs[x].url,
             'image': stuffs[x].image,
