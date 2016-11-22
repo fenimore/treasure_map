@@ -1,8 +1,7 @@
 # Treasure Map
 
 This is an implementation of my <a href="https://github.com/polypmer/freestuffs">freestuffs</a> package using [Flask](https://www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map/leaflet.js map. It can be run with gunicorn app:app (or just by running app.py), or found wsgi deployed [here](http://treasure.plyp.org).
-<img src="https://github.com/polypmer/treasure-map/blob/master/static/img/noun_89070.png" width="100px"></img>
-<hr>
+
 The **freestuffs** package is documented on [readthedocs](http://freestuffs.readthedocs.io/en/latest/). The Treasure Map is currently deployed [here](http://treasure.plyp.org).
 
 ## Requirements
