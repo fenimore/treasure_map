@@ -16,11 +16,10 @@ Treasure Map and freestuffs should work with Python 3.x
 
 ## API
 
-<ul>
-<li>`domain.com/<location> `- for a quantity of 9</li>
-<li>`domain.com/<location>/map` for a quantity of 9</li>
-<li>`domain.com/<location>/map/<quantity>`  - for more or less stuffs</li>
-</ul>
+> `domain.com/<location> `- for a quantity of 9
+> `domain.com/<location>/map` for a quantity of 9
+> `domain.com/<location>/map/<quantity>`  - for more or less stuffs
+
 
 ## TODO:
 * Make an `X` for `mappify`'s Map creation
@@ -28,8 +27,7 @@ Treasure Map and freestuffs should work with Python 3.x
 
 ## License:
 
-`
-Fenimore Love 2016 MIT
+`Fenimore Love 2016 MIT
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
