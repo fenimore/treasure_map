@@ -1,41 +1,37 @@
 # Treasure Map
 
-This is an implementation of <a href="https://github.com/polypmer/freestuff-bot">freestuff-bot</a> using [Flask](www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map/leaflet.js map. It can be run with gunicorn app:app (or just by running app.py), or found wsgi deployed [here](http://treasure.plyp.org).<hr>
+This is an implementation of my <a href="https://github.com/polypmer/freestuffs">freestuffs</a> package using [Flask](https://www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map/leaflet.js map. It can be run with gunicorn app:app (or just by running app.py), or found wsgi deployed [here](http://treasure.plyp.org).
 <img src="https://github.com/polypmer/treasure-map/blob/master/static/img/noun_89070.png" width="100px"></img>
+<hr>
+The **freestuffs** package is documented on [readthedocs](http://freestuffs.readthedocs.io/en/latest/). The Treasure Map is currently deployed [here](http://treasure.plyp.org).
 
-## Dependencies
+## Requirements
+
+Treasure Map and freestuffs should work with Python 3.x
+
+* freestuffs
 * requests
 * beautifulsoup4
-* python 3.x
 * Flask & Jinja2
 * folium 0.2.0
-* [see requirements.txt]
 
-## Application Intereface
-Something like this subject to change:
+## API
+
 <ul>
-<li>domain.com/location - for a quantity of 9</li>
-<li>domain.com/location/**map** for a quantity of 9</li>
-<li>domain.com/location/**map**/quantity  - for more or less entries , **geocoder crashes around 20**</li>
+<li>`domain.com/<location> `- for a quantity of 9</li>
+<li>`domain.com/<location>/map` for a quantity of 9</li>
+<li>`domain.com/<location>/map/<quantity>`  - for more or less stuffs</li>
 </ul>
 
 ## TODO:
-* Make X's for mappify's Map creation (for pirate theme...)
-* Add color scheme to legend
-* A switch for tilesets
-* **Loading screen**!!! -- change
-* Some sort of absolute URL flaskish thing needs to happen
+* Make an `X` for `mappify`'s Map creation
+* Fuzzy matching for city names
 
-### Issues:
-* Location problem:
-    - Certain cities are two words
-        - newyork, sanfrac
-        - this poses an issue for geopy craigslist interpolation
-    - Some cities are also cities elsewhere
-        - geopy doesn't descriminate
-    - create dict or somehow work through the locations
-    - Only a few locations have a supported map-center init
-        - Others have to zoom out. Yuck.
-* Store stuffs list in a session??
-    - pass it through a link?
-    - cut down load time...
+## License:
+
+`
+Fenimore Love 2016 MIT
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+BEWARE EXCESSIVE ACCUMULATION`
