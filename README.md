@@ -17,7 +17,9 @@ Treasure Map and freestuffs should work with Python 3.x
 ## API
 
 > `domain.com/<location> `- for a quantity of 9
+
 > `domain.com/<location>/map` for a quantity of 9
+
 > `domain.com/<location>/map/<quantity>`  - for more or less stuffs
 
 
