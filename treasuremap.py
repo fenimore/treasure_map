@@ -5,11 +5,11 @@ The MIT License (MIT)
 
 Copyright (c) 2016 Fenimore
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 
 
@@ -95,7 +95,8 @@ def list_stuff(location):
 @app.route('/<location>/map')
 def show_map(location):
     """Display 10 items in given city, default"""
-    stuffs = StuffScraper(location, 9, precise=True).stuffs
+    # FIXME: Digitalocean takes wayyy too long with 9
+    stuffs = StuffScraper(location, 5, precise=True).stuffs
     treasure_map = StuffCharter(stuffs, zoom=12)
     folium_figure = treasure_map.treasure_map.get_root()
     folium_figure.header._children['bootstrap'] = folium.element.CssLink('/static/css/style.css')
