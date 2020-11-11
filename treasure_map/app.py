@@ -16,7 +16,7 @@ from stuff.constants import (
 
 from treasure_map.city_list import CITIES
 
-DB_PATH ="sqlite:///treasure.db"
+DB_PATH ="sqlite:////usr/local/share/treasure/treasure.db"
 
 # initialization
 # TODO: use create_app function
