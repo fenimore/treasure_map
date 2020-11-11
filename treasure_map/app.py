@@ -51,10 +51,6 @@ def page_not_found(e):
 @app.route("/")
 def index():
     """Render index."""
-    # Create the DB I guess...
-    StatefulClient.new(
-        db_path="sqlite:///treasure.db"
-    ).setup()
     return render_template('index.html')
 
 
@@ -81,7 +77,7 @@ def list_stuff(location):
 def get_things(location: str, quantity: int, address: Optional[str] = None):
     "dict repr of the stuff for display on template"
     client = StatefulClient.new(
-        db_path="sqlite:///stuff.db",
+        db_path="sqlite:///treasure.db",
         search=Search(region=Region(location), category=Category.free)
     )
     client.populate_db(enrich_inventory=True)
