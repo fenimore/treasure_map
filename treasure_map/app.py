@@ -18,8 +18,9 @@ from treasure_map.city_list import CITIES
 
 
 # initialization
+# TODO: use create_app function
 app = Flask(__name__)
-app.config.update(DEBUG = True)
+app.config.update(DEBUG=False)  # TODO: parameterize
 
 StatefulClient.new(
     db_path="sqlite:///treasure.db"
@@ -37,7 +38,6 @@ def refine_city_name(location):
         loc = location
     return loc
 
-"""Routes"""
 @app.route('/favicon.ico')
 def favicon():
     """Serve favicon"""
@@ -51,6 +51,10 @@ def page_not_found(e):
 @app.route("/")
 def index():
     """Render index."""
+    # Create the DB I guess...
+    StatefulClient.new(
+        db_path="sqlite:///treasure.db"
+    ).setup()
     return render_template('index.html')
 
 
