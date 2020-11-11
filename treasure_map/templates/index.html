@@ -10,11 +10,13 @@
       </div>
       <div class='col-md-4'>
         <h2>Treasure Map</h2>
-        <p>This application is a treasure map, a map of <b>free stuff</b>. <br>
-          With this treasure map, <b>compare craigslist
-              free stuff postings by distance.</b><br>
-               Remember, its Distance is inversely
-              related to its value.</p>
+        <p>This application is a treasure map:</p>
+        <p>A map of <b>free stuff</b>.
+        </p>
+        <p>
+            With this treasure map, <b>compare craigslist
+              free stuff postings by distance.</b>
+        </p>
               <div class="dropdown">
                 <a href="#" class="dropdown-toggle dropdown-welcome" data-toggle="dropdown"
                   role="button" aria-haspopup="true" aria-expanded="false" style="color:gold">
@@ -31,9 +33,10 @@
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="/philadelphia/map" onclick='loading();'>Philadelphia</a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="/boston/map" onclick='loading();'>Boston</a></li>
                   <li role="presentation" class="dropdown-header">USA No Coast</li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="/atlanta/map" onclick='loading();'>Atlanta</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="/austin/map" onclick='loading();'>Austin</a></li>
                   <li role="presentation"><a role="menuitem" tjabindex="-1" href="/chicago/map" onclick='loading();'>Chicago</a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="/phoenix/map" onclick='loading();'>Phoenix</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="/austin/map" onclick='loading();'>Austin</a></li>
                   <li role="presentation" class="dropdown-header">USA West Coast</li>
                   <li role="presentation"><a role="menuitem" tjabindex="-1" href="/sanfrancisco/map" onclick='loading();'>San Francisco</a></li>
                   <li role="presentation"><a role="menuitem" tabindex="-1" href="/seattle/map" onclick='loading();'>Seattle</a></li>
@@ -57,65 +60,44 @@
         related to its value. There are many treasures to be found, using this application, hopefully,
         you will find something near you worth giving a new home.
              </p>
-             <p>The Treasure Map requires the precise name of the stuff's city, without spaces, in order for the url to work -- it must
-               conform to Craigslist's URL. <b>New York is then newyork</b>. Many cities should work 'out of the box'
-               (likely those with one word names).
-               Currently a handful of cities have been tested, like Montreal, Toronto, Philly and New York. Try: <a href="/washingtondc">D.C.</a> or somewhere random.
-               <br>
-               To try a city not listed on the navigation menu, simply enter the city name after the url (treasure.plyp.org). Visit the
-               <a href="/cities">cities</a> page for a complete list of Craiglist valid city names.</p><br><a id="api"></a><hr>
+             <a id="api"></a><hr>
             <h3>Application Interface</h3>
                 <div class="row">
                   <div class="col-md-6">
-                    <p>Type your location into the url:<br><br>
+                      <p>Append your location into the url:</p>
                       <div class="panel panel-info">
-                        <div class="panel-body">
-                          thetreasure.stream/location<br>
-                            thetreasure.stream/location/map<br>
-                            thetreasure.stream/location/map/x<br>
-                        </div>
+                          <pre class="panel-body">
+/&lt;location&gt;
+/&lt;location&gt;/map
+/&lt;location&gt;/&lt;limit&gt;
+</pre>
                       </div>
-                      <hr>
-                      The default map loads 10 items.<br><br>
-                      These <i>stuffs</i> are marked by circles. The newer the posting,
-                      the bigger the circle.<br><br>
-                      The darker the border, the greater the overlap.
+
+                  <p>
+                      The default map loads 25 items.</p><p>
+                      These <i>stuffs</i> are marked by circles. The newer the posting, the bigger the circle (and the darker the border, the greater the overlap).
                     </p>
                   </div>
                   <div class="col-md-6 ">
-                    <img src="static/img/screenshot.png" style="width:300px;height:auto" class='img-responsive img-circle center-block'>
-                    <hr>
-                    Plotting a <small>BUNCH</small> of stuff (free stuffs) is doable, but the map
-                      will take many seconds to load. Above, 65 items loaded in 25 seconds.
-
-                  </div>
-                </div><br><br>
-                <div class="panel panel-warning">
-                  <div class="panel-body">
-                    The program which calculates the coordinates for stuff-locations will sometimes crash.
-                     If you receive an error (either Internal Error 500, or a traceback error "Geocoder Service Timeout"),
-                     try refreshing the page.
+                      <img src="static/img/screenshot.png" style="width:300px;height:auto" class='img-responsive img-circle center-block'>
                   </div>
                 </div>
-                <a id="disclaimer"></a>
                 <hr>
-                <h3>Disclaimer</h3>
-                <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-          IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-          FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-          AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-          LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-          OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-          THE SOFTWARE.
-                  </p><small>BEWARE OF EXCESSIVE ACCUMULATION.</small>
-                  <h4>Contact</h4>
-                  <p>Email Fenimore,<br>
-                  fenimore.love(at)workingagenda.com</p>
-                  <p>Source code is  <a href="https://github.com/polypmer/treasure-map">
-                    here</a>. The Treasure Map uses the python package <a href="http://freestuffs.readthedocs.io/en/latest/">freestuffs</a>, by the same author.<br>
-                    <br>
-                  </p>
-
+                <a id="disclaimer"></a>
+                <div class="panel panel-danger" style="font-family:monospace">
+                    <small>BEWARE OF EXCESSIVE ACCUMULATION.</small>
+                </div>
+                <div class="panel panel-warning" style="font-family:monospace">
+                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                    THE SOFTWARE.
+                </div>
+                <h4>More</h4>
+                <p>Source code is <a href="https://github.com/fenimore/treasure-map">here</a>.</p>
   </div>
 </div>
 

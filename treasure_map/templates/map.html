@@ -22,57 +22,43 @@ font-family: 'IM Fell English', serif;
       <div class="panel panel-success" style='width:100%;margin-top:20%'>
         <div class="panel-heading">
           <div class='panel-title text-center' style='padding:5px;'>
-            Treasures of {{ location.title() }}
-            <button class='btn btn-primary btn-sm' id='show-l-btn'>Legend</button>
+            Treasures from {{ location.title() }}
+            <button style="margin:10px" class='btn btn-primary btn-sm' id='show-l-btn'>Legend</button>
             <button class='btn btn-info btn-sm' id='show-r-btn'>Listing</button>
           </div>
         </div>
         <div id='legend' style='display:none' class="panel-body">
-          <small>Key</small><br>
-          <ul>
-            <li>The listings are represented in diminishing order.</li>
-            <li>The <b>smaller</b> the posting, the older it is. </li>
-            <li>The <b>darker</b> the border, the higher the amount of overlap.</li>
+            <h3>Legend</h3>
+            The listings are represented in diminishing order, and so the <b>smaller</b> the posting, the <b>older</b> it is.
           </ul>
-          <small>Triage</small><br>
+          <h4>Troubleshooting</h4>
           <ul>
-            <li><b>Red</b>: Furniture.</li>
-            <li><b>Blue</b>: Electronics.</li>
-            <li><b>Black</b>: Other.</li>
-            <li><b>White</b>: The rest.</li>
+              <li>If empty, try <b>zooming out.</b></li>
           </ul>
-         <small>Trouble Shooting</small><br>
-          <ul>
-            <li>If the script can't find the location, it places it in the <b>city-center</b>.
-                </li>
-            <li>If empty, try <b>zooming out.</b></li>
-          </ul>
-          <small>API</small><br>
-          <ul>
-            <li style="font-family:monospace;">/"location"/map | Default 10 items.</li>
-            <li style="font-family:monospace">/"location"/map/x | Look at x items.</li>
-          </ul>
-          <a class="btn btn-success btn-sm center-block" href="map/20" onclick="loading()">Load 20 Items</a>
+          <a class="btn btn-success center-block" href="map/50" onclick="loading()">Load 50 Items</a>
           {% if score is defined %}
           Loaded in {{ score }} seconds.
           {% endif %}
         </div>
         <div id='recent' style='display:none' class='panel-body'>
-          <div id='recent-display'>
-            {% for thing in things %}
-            <div class="media">
-              <div class="media-left">
+            <div id='recent-display'>
+                {% for thing in things %}
                 <a href={{ thing.url }} target="_blank" >
-                  <img class="pull-left media-object" style="width:64px"
-                      src={{ thing.image }} >
+                    <div class="media">
+                        <div class="media-left">
+                            <img class="pull-left media-object" style="width:64px;margin:10px;"
+                                 src={{ thing.image }} >
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                {{ thing.title.title() }}</h4>
+                            {{ thing.place.title() }}
+                            <br>
+                            {{ thing.time.title() }}
+                        </div>
+                    </div>
                 </a>
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading">
-              {{ thing.title.title() }}</h4>
-              {{ thing.place.title() }}
-              </div>
-            </div>
+                <hr>
             {% endfor %}
           </div>
         </div>
