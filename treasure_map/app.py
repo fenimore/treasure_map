@@ -16,6 +16,7 @@ from stuff.constants import (
 
 from treasure_map.city_list import CITIES
 
+DB_PATH ="sqlite:///treasure.db"
 
 # initialization
 # TODO: use create_app function
@@ -23,7 +24,7 @@ app = Flask(__name__)
 app.config.update(DEBUG=False)  # TODO: parameterize
 
 StatefulClient.new(
-    db_path="sqlite:///treasure.db"
+    db_path=DB_PATH,
 ).setup()
 
 def refine_city_name(location):
@@ -51,6 +52,9 @@ def page_not_found(e):
 @app.route("/")
 def index():
     """Render index."""
+    StatefulClient.new(
+        db_path=DB_PATH,
+    ).setup()
     return render_template('index.html')
 
 
@@ -77,7 +81,7 @@ def list_stuff(location):
 def get_things(location: str, quantity: int, address: Optional[str] = None):
     "dict repr of the stuff for display on template"
     client = StatefulClient.new(
-        db_path="sqlite:///treasure.db",
+        db_path=DB_PATH,
         search=Search(region=Region(location), category=Category.free)
     )
     client.populate_db(enrich_inventory=True)
