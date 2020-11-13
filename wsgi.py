@@ -17,7 +17,8 @@ if __name__ == "__main__":
         "debug": True,
     }
 
-    app = create_app(local_config)
+    app = create_app(remote_config)
 
     if len(sys.argv) > 1:
-        app.run(host='0.0.0.0', port=port)
+        local_app = create_app(local_config)
+        local_app.run(host='0.0.0.0', port=port)
