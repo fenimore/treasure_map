@@ -2,7 +2,22 @@ import sys
 
 from treasure_map.app import app
 
-# launch
+
 if __name__ == "__main__":
     port = int(sys.argv[1])
-    app.run(host='0.0.0.0', port=port)
+
+    remote_config = {
+        "db_path": "sqlite:////usr/local/share/treasure/treasure.db",
+        "proxy": None,
+    }
+
+    local_config = {
+        "db_path": "sqlite:///treasure.db",
+        "proxy": None,
+        "debug": True,
+    }
+
+    app = create_app(local_config)
+
+    if len(sys.argv) > 1:
+        app.run(host='0.0.0.0', port=port)

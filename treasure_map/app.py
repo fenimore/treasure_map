@@ -16,16 +16,6 @@ from stuff.constants import (
 
 from treasure_map.city_list import CITIES
 
-DB_PATH ="sqlite:////usr/local/share/treasure/treasure.db"
-
-# initialization
-# TODO: use create_app function
-app = Flask(__name__)
-app.config.update(DEBUG=False)  # TODO: parameterize
-
-StatefulClient.new(
-    db_path=DB_PATH,
-).setup()
 
 def refine_city_name(location):
     """display User-friendly city name"""
@@ -39,50 +29,12 @@ def refine_city_name(location):
         loc = location
     return loc
 
-@app.route('/favicon.ico')
-def favicon():
-    """Serve favicon"""
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
-
-@app.errorhandler(404)
-def page_not_found(e):
-    """Render 404."""
-    return render_template('404.html'), 404
-
-@app.route("/")
-def index():
-    """Render index."""
-    StatefulClient.new(
-        db_path=DB_PATH,
-    ).setup()
-    return render_template('index.html')
-
-
-@app.route("/cities")
-def list_cities():
-    """Display valid city names."""
-    cities_list = '<table>'
-    cities_list +='<tr><th>User-Friendly Name</th><th>Valid for Url</th></tr>'
-    for key, value in CITIES.items() :
-        cities_list +='<tr>'
-        cities_list += ('<td>' + str(key) + '</td><td>' + str(value) + '</td>')
-        cities_list +='</tr>'
-    cities_list += '</table>'
-    return cities_list
-
-
-@app.route('/<location>')
-def list_stuff(location):
-    """Display listings"""
-    things = get_things(location, 25)
-    refined_loc = refine_city_name(location)
-    return render_template('view.html', things=things, location=location, rlocation=refined_loc)
-
-def get_things(location: str, quantity: int, address: Optional[str] = None):
+def get_things(location: str, quantity: int, address: Optional[str] = None, proxy=None):
     "dict repr of the stuff for display on template"
     client = StatefulClient.new(
         db_path=DB_PATH,
-        search=Search(region=Region(location), category=Category.free)
+        search=Search(region=Region(location), category=Category.free),
+        proxy=proxy,
     )
     client.populate_db(enrich_inventory=True)
     stuffs = client.select_stuff(location, quantity)
@@ -110,27 +62,81 @@ def get_things(location: str, quantity: int, address: Optional[str] = None):
         })
     return things
 
-@app.route('/<location>/map')
-def show_map(location):
-    """Display 10 items in given city, default"""
-    things = get_things(location, 25)
-    location = refine_city_name(location)
 
-    return render_template('map.html', location=location, things=things)
+def create_app(config={}):
+    app = Flask(__name__)
 
-@app.route('/<location>/map/<int:quantity>')
-def show_map_more(location, quantity):
-    things = get_things(location, quantity)
-    location = refine_city_name(location)
+    debug = config.get("debug", False)
+    proxy = config.get("proxy", None)
+    db_path = config.get("db_path", "sqlite:///")
 
-    return render_template('map.html', location=location, things=things)
+    app.config.update(DEBUG=debug)
 
-@app.route('/me', methods=['POST'])
-def me():
-    if request.method == 'POST':
-        location = request.form['location']
-        address = request.form['address']
+    StatefulClient.new(db_path=db_path, proxy=proxy).setup()  # create db if doesn't exist
 
-        things = get_things(location, 20, address)
+    @app.route('/favicon.ico')
+    def favicon():
+        """Serve favicon"""
+        return send_from_directory(os.path.join(app.root_path, 'static'), 'ico/favicon.ico')
+
+    @app.errorhandler(404)
+    def page_not_found(e):
+        """Render 404."""
+        return render_template('404.html'), 404
+
+    @app.route("/")
+    def index():
+        """Render index."""
+        StatefulClient.new(
+            db_path=db_path,
+            proxy=proxy,
+        ).setup()
+        return render_template('index.html')
+
+
+    @app.route("/cities")
+    def list_cities():
+        """Display valid city names."""
+        cities_list = '<table>'
+        cities_list +='<tr><th>User-Friendly Name</th><th>Valid for Url</th></tr>'
+        for key, value in CITIES.items() :
+            cities_list +='<tr>'
+            cities_list += ('<td>' + str(key) + '</td><td>' + str(value) + '</td>')
+            cities_list +='</tr>'
+        cities_list += '</table>'
+        return cities_list
+
+
+    @app.route('/<location>')
+    def list_stuff(location):
+        """Display listings"""
+        things = get_things(location, 25)
+        refined_loc = refine_city_name(location)
+        return render_template('view.html', things=things, location=location, rlocation=refined_loc)
+
+    @app.route('/<location>/map')
+    def show_map(location):
+        """Display 10 items in given city, default"""
+        things = get_things(location, 25)
         location = refine_city_name(location)
+
         return render_template('map.html', location=location, things=things)
+
+    @app.route('/<location>/map/<int:quantity>')
+    def show_map_more(location, quantity):
+        things = get_things(location, quantity)
+        location = refine_city_name(location)
+
+        return render_template('map.html', location=location, things=things)
+
+    @app.route('/me', methods=['POST'])
+    def me():
+        if request.method == 'POST':
+            location = request.form['location']
+            address = request.form['address']
+
+            things = get_things(location, 20, address)
+            location = refine_city_name(location)
+            return render_template('map.html', location=location, things=things)
+
+    return app
