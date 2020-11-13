@@ -1,5 +1,6 @@
 from typing import Optional
 import os
+import logging
 from datetime import datetime
 
 import folium
@@ -75,6 +76,9 @@ def create_app(config={}):
     debug = config.get("debug", False)
     proxy = config.get("proxy", None)
     db_path = config.get("db_path", "sqlite:///")
+
+    logging.info("Launching app with config:")
+    logging.info(config)
 
     app.config.update(DEBUG=debug)
 

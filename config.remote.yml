@@ -1,3 +1,0 @@
-debug: true
-db_path: "sqlite:////usr/local/share/treasure/treasure.db"
-proxy: "http://treasure:password@1.1.1.1:3128"
