@@ -1,0 +1,3 @@
+debug: true
+db_path: "sqlite:///treasure.db"
+proxy: null
