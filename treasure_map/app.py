@@ -29,10 +29,16 @@ def refine_city_name(location):
         loc = location
     return loc
 
-def get_things(location: str, quantity: int, address: Optional[str] = None, proxy=None):
+def get_things(
+        location: str,
+        quantity: int,
+        db_path: str,
+        address: Optional[str] = None,
+        proxy: Optional[str] = None,
+):
     "dict repr of the stuff for display on template"
     client = StatefulClient.new(
-        db_path=DB_PATH,
+        db_path=db_path,
         search=Search(region=Region(location), category=Category.free),
         proxy=proxy,
     )
@@ -110,14 +116,14 @@ def create_app(config={}):
     @app.route('/<location>')
     def list_stuff(location):
         """Display listings"""
-        things = get_things(location, 25)
+        things = get_things(location, 25, db_path)
         refined_loc = refine_city_name(location)
         return render_template('view.html', things=things, location=location, rlocation=refined_loc)
 
     @app.route('/<location>/map')
     def show_map(location):
         """Display 10 items in given city, default"""
-        things = get_things(location, 25)
+        things = get_things(location, 25, db_path)
         location = refine_city_name(location)
 
         return render_template('map.html', location=location, things=things)
@@ -135,7 +141,7 @@ def create_app(config={}):
             location = request.form['location']
             address = request.form['address']
 
-            things = get_things(location, 20, address)
+            things = get_things(location, 20, address=address)
             location = refine_city_name(location)
             return render_template('map.html', location=location, things=things)
 
