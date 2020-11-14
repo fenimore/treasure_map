@@ -1,6 +1,6 @@
 # Treasure Map
 
-This is an implementation of my <a href="https://github.com/polypmer/freestuffs">freestuffs</a> package using [Flask](https://www.flask.pocoo.org). This web application gathers the freestuff from craiglist and then posts the locations onto an open-street-map/leaflet.js map. It can be run with gunicorn app:app (or just by running app.py).
+This application uses the <a href="https://github.com/fenimore/stuff">stuff</a> package and using [Flask](https://www.flask.pocoo.org) to serve free stuff in a map.
 
 ## Requirements
 
@@ -14,11 +14,11 @@ Treasure Map and `stuff` should work with Python 3.x
 
 ## API
 
-> `domain.com/<location> `- for a quantity of 9
+> `domain.com/<location> `
 
-> `domain.com/<location>/map` for a quantity of 9
+> `domain.com/<location>/map`
 
-> `domain.com/<location>/map/<quantity>`  - for more or less stuffs
+> `domain.com/<location>/map/<quantity>`
 
 
 ## TODO:
