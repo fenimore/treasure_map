@@ -51,7 +51,7 @@ def get_things(
     charter = Charter(stuffs=stuffs, city=location, zoom=12, address=address)
     charter.create_map()
 
-    map_path = os.path.join(app_path, 'templates', 'raw_map.html')
+    map_path = os.path.join(app_path, 'templates', f'raw_map_{location}.html')
     charter.save_map(
         map_path,
         css_children={
@@ -125,33 +125,29 @@ def create_app(config={}):
     @app.route('/<location>')
     def list_stuff(location):
         """Display listings"""
-        things = get_things(location, 25, app.root_path, db_path, proxies=proxies)
+        things = get_things(location, 30, app.root_path, db_path, proxies=proxies)
         refined_loc = refine_city_name(location)
         return render_template('view.html', things=things, location=location, rlocation=refined_loc)
 
+    def _serve_map(location, quantity, address=None):
+        things = get_things(location, quantity, app.root_path, db_path, address=address, proxies=proxies)
+        raw_file = f"raw_map_{location}.html"
+        refined_location = refine_city_name(location)
+
+        return render_template('map.html', location=refined_location, things=things, raw_file=raw_file)
+
     @app.route('/<location>/map')
     def show_map(location):
-        """Display 10 items in given city, default"""
-        things = get_things(location, 25, app.root_path, db_path, proxies=proxies)
-        location = refine_city_name(location)
-
-        return render_template('map.html', location=location, things=things)
+        return _serve_map(location, 30)
 
     @app.route('/<location>/map/<int:quantity>')
     def show_map_more(location, quantity):
-        things = get_things(location, quantity, app.root_path, db_path, proxies=proxies)
-        location = refine_city_name(location)
+        return _serve_map(location, quantity)
 
-        return render_template('map.html', location=location, things=things)
-
-    @app.route('/me', methods=['POST'])
-    def me():
-        if request.method == 'POST':
-            location = request.form['location']
-            address = request.form['address']
-
-            things = get_things(location, 20, app.root_path, db_path, address=address, proxies=proxies)
-            location = refine_city_name(location)
-            return render_template('map.html', location=location, things=things)
+    @app.route('/address', methods=['POST'])
+    def search_address():
+        location = request.form['location']
+        address = request.form['address']
+        return _serve_map(location, 50, address=address)
 
     return app

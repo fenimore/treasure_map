@@ -60,3 +60,4 @@ docs/_build/
 target/
 
 treasure.db
+raw_map_*.html
